@@ -56,8 +56,22 @@ struct LandingPageView: View {
             .tag(2)
             
             NavigationView {
+                
                 SelesaiView()
                     .navigationBarTitle(tabNavigationTitle)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            VStack {
+                                Spacer().frame(height: 90)
+                                Button {
+                                    // Your button action here
+                                } label: {
+                                    Image(systemName: "plus.circle.fill").font(.system(size: 20))
+                                }
+                                .padding(.trailing, 16) // Adjust the padding as needed
+                            }
+                        }
+                    }
             }
             .tabItem {
                 createTabItem(imageName: "checkmark.bubble.fill", title: "Selesai", index: 3)
@@ -67,6 +81,19 @@ struct LandingPageView: View {
             NavigationView {
                 BatalView()
                     .navigationBarTitle(tabNavigationTitle)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            VStack {
+                                Spacer().frame(height: 90)
+                                Button {
+                                    // Your button action here
+                                } label: {
+                                    Image(systemName: "plus.circle.fill").font(.system(size: 20))
+                                }
+                                .padding(.trailing, 16) // Adjust the padding as needed
+                            }
+                        }
+                    }
             }
             .tabItem {
                 createTabItem(imageName: "x.circle.fill", title: "Batal", index: 4)
@@ -175,10 +202,14 @@ struct HasilView: View {
 struct SelesaiView: View {
     var body: some View{
         VStack {
-            ZStack {
-                Color.gray.opacity(0.3)
+            ZStack(alignment: .top) {
+                Color.gray.opacity(0.2)
+                VStack{
+//                    ScrollView{
+                        SubSelesaiView()
+//                    }
+                }
             }
-            
             ZStack {
                 Color.white.frame(height: 8)
                 HStack {
@@ -194,10 +225,14 @@ struct SelesaiView: View {
 struct BatalView: View {
     var body: some View{
         VStack {
-            ZStack {
-                Color.gray.opacity(0.3)
+            ZStack(alignment: .top) {
+                Color.gray.opacity(0.2)
+                VStack{
+//                    ScrollView{
+                        SubBatalView()
+//                    }
+                }
             }
-            
             ZStack {
                 Color.white.frame(height: 8)
                 HStack {
