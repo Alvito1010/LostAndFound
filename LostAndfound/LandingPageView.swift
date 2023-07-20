@@ -17,7 +17,21 @@ struct LandingPageView: View {
             NavigationView {
                 LaporanView()
                     .navigationBarTitle(tabNavigationTitle)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            VStack {
+                                Spacer().frame(height: 90)
+                                Button {
+                                    // Your button action here
+                                } label: {
+                                    Image(systemName: "plus.circle.fill").font(.system(size: 20))
+                                }
+                                .padding(.trailing, 16) // Adjust the padding as needed
+                            }
+                        }
+                    }
             }
+
             .tabItem {
                 createTabItem(imageName: "exclamationmark.bubble.fill", title: "Laporan", index: 0)
             }
@@ -111,7 +125,7 @@ struct LaporanView: View {
             ZStack {
                 Color.white.frame(height: 8)
                 HStack {
-                    Spacer().frame(width: 36.5)
+                    Spacer().frame(width: UIScreen.main.bounds.width * 0.093)
                     Circle().foregroundColor(.blue).frame(width: 5,height: 5)
                     Spacer()
                 }
@@ -130,7 +144,7 @@ struct PencarianView: View {
             ZStack {
                 Color.white.frame(height: 8)
                 HStack {
-                    Spacer().frame(width: 112.5)
+                    Spacer().frame(width: UIScreen.main.bounds.width * 0.288)
                     Circle().foregroundColor(.blue).frame(width: 5,height: 5)
                     Spacer()
                 }
@@ -149,7 +163,7 @@ struct HasilView: View {
             ZStack {
                 Color.white.frame(height: 8)
                 HStack {
-                    Spacer().frame(width: 193)
+                    Spacer().frame(width: UIScreen.main.bounds.width * 0.49)
                     Circle().foregroundColor(.blue).frame(width: 5,height: 5)
                     Spacer()
                 }
@@ -168,7 +182,7 @@ struct SelesaiView: View {
             ZStack {
                 Color.white.frame(height: 8)
                 HStack {
-                    Spacer().frame(width: 271.5)
+                    Spacer().frame(width: UIScreen.main.bounds.width * 0.692)
                     Circle().foregroundColor(.blue).frame(width: 5,height: 5)
                     Spacer()
                 }
@@ -187,7 +201,7 @@ struct BatalView: View {
             ZStack {
                 Color.white.frame(height: 8)
                 HStack {
-                    Spacer().frame(width: 350.5)
+                    Spacer().frame(width: UIScreen.main.bounds.width * 0.892)
                     Circle().foregroundColor(.blue).frame(width: 5,height: 5)
                     Spacer()
                 }
