@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1160009E2A68F35300C6CA44 /* SubSelesaiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160009D2A68F35300C6CA44 /* SubSelesaiView.swift */; };
+		1160009E2A68F35300C6CA44 /* SubCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160009D2A68F35300C6CA44 /* SubCardView.swift */; };
 		116000A42A68F40900C6CA44 /* ComponentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116000A32A68F40900C6CA44 /* ComponentTrack.swift */; };
-		116000A62A69054C00C6CA44 /* SubBatalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116000A52A69054C00C6CA44 /* SubBatalView.swift */; };
+		11A47A132A6A26340083DD07 /* CardLaporan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A47A122A6A26340083DD07 /* CardLaporan.swift */; };
+		11A47A162A6A2AF10083DD07 /* LaporanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A47A152A6A2AF10083DD07 /* LaporanView.swift */; };
+		11A47A182A6A2B240083DD07 /* PencarianView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A47A172A6A2B240083DD07 /* PencarianView.swift */; };
+		11A47A1A2A6A31E20083DD07 /* SelesaiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A47A192A6A31E20083DD07 /* SelesaiView.swift */; };
+		11A47A1C2A6A32480083DD07 /* BatalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A47A1B2A6A32480083DD07 /* BatalView.swift */; };
+		11A47A1E2A6A326C0083DD07 /* HasilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A47A1D2A6A326C0083DD07 /* HasilView.swift */; };
 		11D8A89F2A60FCB000C71BAC /* LostAndfoundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D8A89E2A60FCB000C71BAC /* LostAndfoundApp.swift */; };
 		11D8A8A12A60FCB000C71BAC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D8A8A02A60FCB000C71BAC /* ContentView.swift */; };
 		11D8A8A32A60FCB100C71BAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11D8A8A22A60FCB100C71BAC /* Assets.xcassets */; };
@@ -32,9 +37,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1160009D2A68F35300C6CA44 /* SubSelesaiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSelesaiView.swift; sourceTree = "<group>"; };
+		1160009D2A68F35300C6CA44 /* SubCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCardView.swift; sourceTree = "<group>"; };
 		116000A32A68F40900C6CA44 /* ComponentTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTrack.swift; sourceTree = "<group>"; };
-		116000A52A69054C00C6CA44 /* SubBatalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubBatalView.swift; sourceTree = "<group>"; };
+		11A47A122A6A26340083DD07 /* CardLaporan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLaporan.swift; sourceTree = "<group>"; };
+		11A47A152A6A2AF10083DD07 /* LaporanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaporanView.swift; sourceTree = "<group>"; };
+		11A47A172A6A2B240083DD07 /* PencarianView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PencarianView.swift; sourceTree = "<group>"; };
+		11A47A192A6A31E20083DD07 /* SelesaiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelesaiView.swift; sourceTree = "<group>"; };
+		11A47A1B2A6A32480083DD07 /* BatalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatalView.swift; sourceTree = "<group>"; };
+		11A47A1D2A6A326C0083DD07 /* HasilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasilView.swift; sourceTree = "<group>"; };
 		11D8A89B2A60FCB000C71BAC /* LostAndfound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LostAndfound.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11D8A89E2A60FCB000C71BAC /* LostAndfoundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostAndfoundApp.swift; sourceTree = "<group>"; };
 		11D8A8A02A60FCB000C71BAC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,9 +83,13 @@
 			isa = PBXGroup;
 			children = (
 				116000A22A68F3E500C6CA44 /* ComponentView */,
-				1160009D2A68F35300C6CA44 /* SubSelesaiView.swift */,
+				11A47A142A6A2A800083DD07 /* SubView */,
+				11A47A152A6A2AF10083DD07 /* LaporanView.swift */,
+				11A47A172A6A2B240083DD07 /* PencarianView.swift */,
+				11A47A1D2A6A326C0083DD07 /* HasilView.swift */,
+				11A47A192A6A31E20083DD07 /* SelesaiView.swift */,
+				11A47A1B2A6A32480083DD07 /* BatalView.swift */,
 				DBF417712A681E9700E70C2F /* LandingPageView.swift */,
-				116000A52A69054C00C6CA44 /* SubBatalView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -100,8 +114,17 @@
 			isa = PBXGroup;
 			children = (
 				116000A32A68F40900C6CA44 /* ComponentTrack.swift */,
+				11A47A122A6A26340083DD07 /* CardLaporan.swift */,
 			);
 			path = ComponentView;
+			sourceTree = "<group>";
+		};
+		11A47A142A6A2A800083DD07 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				1160009D2A68F35300C6CA44 /* SubCardView.swift */,
+			);
+			path = SubView;
 			sourceTree = "<group>";
 		};
 		11D8A8922A60FCB000C71BAC = {
@@ -240,16 +263,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBF417702A681DD600E70C2F /* WriteViewModel.swift in Sources */,
+				11A47A1E2A6A326C0083DD07 /* HasilView.swift in Sources */,
 				DBF417722A681E9700E70C2F /* LandingPageView.swift in Sources */,
 				116000A42A68F40900C6CA44 /* ComponentTrack.swift in Sources */,
-				1160009E2A68F35300C6CA44 /* SubSelesaiView.swift in Sources */,
+				1160009E2A68F35300C6CA44 /* SubCardView.swift in Sources */,
 				2A0AFAB52A69FE2E00F08BC9 /* FontStyle.swift in Sources */,
 				2A0AFAB12A69FE1F00F08BC9 /* EffectStyle.swift in Sources */,
 				11D8A8A12A60FCB000C71BAC /* ContentView.swift in Sources */,
+				11A47A162A6A2AF10083DD07 /* LaporanView.swift in Sources */,
 				11D8A89F2A60FCB000C71BAC /* LostAndfoundApp.swift in Sources */,
-				116000A62A69054C00C6CA44 /* SubBatalView.swift in Sources */,
+				11A47A1C2A6A32480083DD07 /* BatalView.swift in Sources */,
+				11A47A1A2A6A31E20083DD07 /* SelesaiView.swift in Sources */,
 				DBF417742A68213A00E70C2F /* ReadViewModel.swift in Sources */,
 				2A0AFAB32A69FE2600F08BC9 /* ButtonStyle.swift in Sources */,
+				11A47A182A6A2B240083DD07 /* PencarianView.swift in Sources */,
+				11A47A132A6A26340083DD07 /* CardLaporan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

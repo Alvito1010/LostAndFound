@@ -11,12 +11,19 @@ struct LandingPageView: View {
     @EnvironmentObject var writevm: WriteViewModel
     @State var text1 = "ggggggg"
     @State private var selectedTab = 0
-    
+    init() {
+                // Use this to modify the appearance of the NavigationBar
+                let appearance = UINavigationBarAppearance()
+                appearance.configureWithTransparentBackground()
+                appearance.backgroundColor = .white
+                UINavigationBar.appearance().standardAppearance = appearance
+                UINavigationBar.appearance().compactAppearance = appearance
+                UINavigationBar.appearance().scrollEdgeAppearance = appearance
+            }
     var body: some View {
         TabView(selection: $selectedTab) {
             NavigationView {
                 LaporanView()
-                    .navigationBarTitle("") // Use an empty title to adjust the alignment
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
                             HStack {
@@ -25,7 +32,6 @@ struct LandingPageView: View {
                                 Spacer() // Flexible spacer to push the button to the trailing side
                             }
                         }
-                        
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button(action: {
                                 // Your button action here
@@ -38,7 +44,6 @@ struct LandingPageView: View {
                         }
                     }
             }
-
             .tabItem {
                 createTabItem(imageName: "exclamationmark.bubble.fill", title: "Laporan", index: 0)
             }
@@ -46,7 +51,6 @@ struct LandingPageView: View {
             
             NavigationView {
                 PencarianView()
-                    .navigationBarTitle("")
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
                             HStack {
@@ -75,7 +79,6 @@ struct LandingPageView: View {
             
             NavigationView {
                 HasilView()
-                    .navigationBarTitle("")
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
                             HStack {
@@ -103,9 +106,7 @@ struct LandingPageView: View {
             .tag(2)
             
             NavigationView {
-                
                 SelesaiView()
-                    .navigationBarTitle("")
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
                             HStack {
@@ -125,7 +126,8 @@ struct LandingPageView: View {
                             }
                             .padding(.trailing, 16)
                         }
-                    }            }
+                    }
+            }
             .tabItem {
                 createTabItem(imageName: "checkmark.bubble.fill", title: "Selesai", index: 3)
             }
@@ -133,7 +135,6 @@ struct LandingPageView: View {
             
             NavigationView {
                 BatalView()
-                    .navigationBarTitle("")
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
                             HStack {
@@ -159,6 +160,7 @@ struct LandingPageView: View {
                 createTabItem(imageName: "x.circle.fill", title: "Batal", index: 4)
             }
             .tag(4)
+            
         }
         
     }
@@ -196,113 +198,8 @@ struct LandingPageView_Previews: PreviewProvider {
     }
 }
 
-struct LaporanView: View {
-    var body: some View {
-        VStack {
-            ZStack {
-                Color.gray.opacity(0.25)
-            }
-            
-            ZStack {
-                Color.white.frame(height: 8)
-                HStack {
-                    Spacer().frame(width: UIScreen.main.bounds.width * 0.093)
-                    Circle().foregroundColor(.blue).frame(width: 5,height: 5)
-                    Spacer()
-                }
-            }
-        }
-    }
-}
 
-struct PencarianView: View {
-    @EnvironmentObject var writevm: WriteViewModel
-    var body: some View {
-        VStack {
-            ZStack {
-                Color.gray.opacity(0.3)
-                Button {
-                    // Your button action here
-                    writevm.createPath(nama: "Bayu", hp: "0818888888", jenis: "elektronik", rutePerjalanan: "Bundaran HI - Lebak Bulus", deskripsi: "Deskripsi barang hiya hiya hiya hiya", detailLokasi: "Kereta", waktu: "09:00 - 10:00")
-                    
-                } label: {
-                    Image(systemName: "plus.circle.fill").font(.system(size: 20))
-                }
-            }
-            
-            ZStack {
-                Color.white.frame(height: 8)
-                HStack {
-                    Spacer().frame(width: UIScreen.main.bounds.width * 0.288)
-                    Circle().foregroundColor(.blue).frame(width: 5,height: 5)
-                    Spacer()
-                }
-            }
-        }
-    }
-}
 
-struct HasilView: View {
-    var body: some View{
-        VStack {
-            ZStack {
-                Color.gray.opacity(0.3)
-            }
-            
-            ZStack {
-                Color.white.frame(height: 8)
-                HStack {
-                    Spacer().frame(width: UIScreen.main.bounds.width * 0.49)
-                    Circle().foregroundColor(.blue).frame(width: 5,height: 5)
-                    Spacer()
-                }
-            }
-        }
-    }
-}
 
-struct SelesaiView: View {
-    var body: some View{
-        VStack {
-            ZStack(alignment: .top) {
-                Color.gray.opacity(0.2)
-                VStack{
-//                    ScrollView{
-                        SubSelesaiView()
-//                    }
-                }
-            }
-            ZStack {
-                Color.white.frame(height: 8)
-                HStack {
-                    Spacer().frame(width: UIScreen.main.bounds.width * 0.692)
-                    Circle().foregroundColor(.blue).frame(width: 5,height: 5)
-                    Spacer()
-                }
-            }
-        }
-    }
-}
 
-struct BatalView: View {
-    var body: some View{
-        VStack {
-            ZStack(alignment: .top) {
-                Color.gray.opacity(0.2)
-                VStack{
-//                    ScrollView{
-                        SubBatalView()
-//                    }
-                }
-            }
-            ZStack {
-                Color.white.frame(height: 8)
-                HStack {
-                    Spacer().frame(width: UIScreen.main.bounds.width * 0.892)
-                    Circle().foregroundColor(.blue).frame(width: 5,height: 5)
-                    Spacer()
-                }
-            }
-        }
-    }
-}
+
