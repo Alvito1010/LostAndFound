@@ -74,6 +74,7 @@
 			children = (
 				116000A22A68F3E500C6CA44 /* ComponentView */,
 				1160009D2A68F35300C6CA44 /* SubSelesaiView.swift */,
+				DBF417712A681E9700E70C2F /* LandingPageView.swift */,
 				116000A52A69054C00C6CA44 /* SubBatalView.swift */,
 			);
 			path = View;
@@ -89,6 +90,8 @@
 		116000A02A68F37300C6CA44 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				DBF417732A68213A00E70C2F /* ReadViewModel.swift */,
+				DBF4176F2A681DD600E70C2F /* WriteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -123,15 +126,11 @@
 				1160009F2A68F36B00C6CA44 /* Model */,
 				116000A02A68F37300C6CA44 /* ViewModel */,
 				1160009A2A68F29000C6CA44 /* View */,
-				DBF4176E2A681BAD00E70C2F /* Info.plist */,
 				2A0AFAAF2A69FD2600F08BC9 /* Constant */,
 				DBF4176C2A681ADE00E70C2F /* GoogleService-Info.plist */,
 				DBF4176E2A681BAD00E70C2F /* Info.plist */,
 				11D8A89E2A60FCB000C71BAC /* LostAndfoundApp.swift */,
 				11D8A8A02A60FCB000C71BAC /* ContentView.swift */,
-				DBF4176F2A681DD600E70C2F /* WriteViewModel.swift */,
-				DBF417732A68213A00E70C2F /* ReadViewModel.swift */,
-				DBF417712A681E9700E70C2F /* LandingPageView.swift */,
 				11D8A8A22A60FCB100C71BAC /* Assets.xcassets */,
 				11D8A8A42A60FCB100C71BAC /* Preview Content */,
 			);

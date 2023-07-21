@@ -16,21 +16,25 @@ struct LandingPageView: View {
         TabView(selection: $selectedTab) {
             NavigationView {
                 LaporanView()
-                    .navigationBarTitle(tabNavigationTitle)
+                    .navigationBarTitle("") // Use an empty title to adjust the alignment
                     .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            VStack {
-                                Spacer().frame(height: 90)
-                                HStack {
-                                    Spacer().frame(width: 340)
-                                    Button {
-                                        // Your button action here
-                                    } label: {
-                                        Image(systemName: "plus.circle.fill").font(.system(size: 20))
-                                    }
-                                .padding(.trailing, 16)
-                                } // Adjust the padding as needed
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            HStack {
+                                Text(tabNavigationTitle) // Your navigation title
+                                    .font(.largeTitle).fontWeight(.bold).padding()
+                                Spacer() // Flexible spacer to push the button to the trailing side
                             }
+                        }
+                        
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(action: {
+                                // Your button action here
+                                print("hhhhh")
+                            }) {
+                                Image(systemName: "plus.circle.fill")
+                                    .font(.system(size: 20))
+                            }
+                            .padding(.trailing, 16)
                         }
                     }
             }
@@ -42,21 +46,25 @@ struct LandingPageView: View {
             
             NavigationView {
                 PencarianView()
-                    .navigationBarTitle(tabNavigationTitle)
+                    .navigationBarTitle("")
                     .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            VStack {
-                                Spacer().frame(height: 90)
-                                HStack {
-                                    Spacer().frame(width: 340)
-                                    Button {
-                                        // Your button action here
-                                    } label: {
-                                        Image(systemName: "plus.circle.fill").font(.system(size: 20))
-                                    }
-                                .padding(.trailing, 16)
-                                } // Adjust the padding as needed
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            HStack {
+                                Text(tabNavigationTitle) // Your navigation title
+                                    .font(.largeTitle).fontWeight(.bold).padding()
+                                Spacer() // Flexible spacer to push the button to the trailing side
                             }
+                        }
+                        
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(action: {
+                                // Your button action here
+                                print("hhhhh")
+                            }) {
+                                Image(systemName: "plus.circle.fill")
+                                    .font(.system(size: 20))
+                            }
+                            .padding(.trailing, 16)
                         }
                     }
             }
@@ -67,21 +75,25 @@ struct LandingPageView: View {
             
             NavigationView {
                 HasilView()
-                    .navigationBarTitle(tabNavigationTitle)
+                    .navigationBarTitle("")
                     .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            VStack {
-                                Spacer().frame(height: 90)
-                                HStack {
-                                    Spacer().frame(width: 340)
-                                    Button {
-                                        // Your button action here
-                                    } label: {
-                                        Image(systemName: "plus.circle.fill").font(.system(size: 20))
-                                    }
-                                .padding(.trailing, 16)
-                                } // Adjust the padding as needed
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            HStack {
+                                Text(tabNavigationTitle) // Your navigation title
+                                    .font(.largeTitle).fontWeight(.bold).padding()
+                                Spacer() // Flexible spacer to push the button to the trailing side
                             }
+                        }
+                        
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(action: {
+                                // Your button action here
+                                print("hhhhh")
+                            }) {
+                                Image(systemName: "plus.circle.fill")
+                                    .font(.system(size: 20))
+                            }
+                            .padding(.trailing, 16)
                         }
                     }
             }
@@ -93,24 +105,27 @@ struct LandingPageView: View {
             NavigationView {
                 
                 SelesaiView()
-                    .navigationBarTitle(tabNavigationTitle)
+                    .navigationBarTitle("")
                     .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            VStack {
-                                Spacer().frame(height: 90)
-                                HStack {
-                                    Spacer().frame(width: 340)
-                                    Button {
-                                        // Your button action here
-                                    } label: {
-                                        Image(systemName: "plus.circle.fill").font(.system(size: 20))
-                                    }
-                                .padding(.trailing, 16)
-                                } // Adjust the padding as needed
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            HStack {
+                                Text(tabNavigationTitle) // Your navigation title
+                                    .font(.largeTitle).fontWeight(.bold).padding()
+                                Spacer() // Flexible spacer to push the button to the trailing side
                             }
                         }
-                    }
-            }
+                        
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(action: {
+                                // Your button action here
+                                print("hhhhh")
+                            }) {
+                                Image(systemName: "plus.circle.fill")
+                                    .font(.system(size: 20))
+                            }
+                            .padding(.trailing, 16)
+                        }
+                    }            }
             .tabItem {
                 createTabItem(imageName: "checkmark.bubble.fill", title: "Selesai", index: 3)
             }
@@ -118,21 +133,25 @@ struct LandingPageView: View {
             
             NavigationView {
                 BatalView()
-                    .navigationBarTitle(tabNavigationTitle)
+                    .navigationBarTitle("")
                     .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            VStack {
-                                Spacer().frame(height: 90)
-                                HStack {
-                                    Spacer().frame(width: 340)
-                                    Button {
-                                        // Your button action here
-                                    } label: {
-                                        Image(systemName: "plus.circle.fill").font(.system(size: 20))
-                                    }
-                                .padding(.trailing, 16)
-                                } // Adjust the padding as needed
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            HStack {
+                                Text(tabNavigationTitle) // Your navigation title
+                                    .font(.largeTitle).fontWeight(.bold).padding()
+                                Spacer() // Flexible spacer to push the button to the trailing side
                             }
+                        }
+                        
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(action: {
+                                // Your button action here
+                                print("hhhhh")
+                            }) {
+                                Image(systemName: "plus.circle.fill")
+                                    .font(.system(size: 20))
+                            }
+                            .padding(.trailing, 16)
                         }
                     }
             }
@@ -141,13 +160,7 @@ struct LandingPageView: View {
             }
             .tag(4)
         }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button("trial") {
-                    writevm.pushNewValue(username: text1, steps: "jjj")
-                }
-            }
-        }
+        
     }
     
     private func createTabItem(imageName: String, title: String, index: Int) -> some View {
@@ -203,10 +216,18 @@ struct LaporanView: View {
 }
 
 struct PencarianView: View {
+    @EnvironmentObject var writevm: WriteViewModel
     var body: some View {
         VStack {
             ZStack {
                 Color.gray.opacity(0.3)
+                Button {
+                    // Your button action here
+                    writevm.createPath(nama: "Bayu", hp: "0818888888", jenis: "elektronik", rutePerjalanan: "Bundaran HI - Lebak Bulus", deskripsi: "Deskripsi barang hiya hiya hiya hiya", detailLokasi: "Kereta", waktu: "09:00 - 10:00")
+                    
+                } label: {
+                    Image(systemName: "plus.circle.fill").font(.system(size: 20))
+                }
             }
             
             ZStack {
