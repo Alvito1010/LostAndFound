@@ -261,6 +261,7 @@ struct SelesaiView: View {
 struct BatalView: View {
     var body: some View{
         VStack {
+            
             ZStack {
                 Color.gray.opacity(0.3)
             }
