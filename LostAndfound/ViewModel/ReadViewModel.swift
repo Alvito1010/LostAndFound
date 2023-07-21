@@ -37,6 +37,16 @@ class ReadViewModel: ObservableObject {
     
     @Published var status5Deadline: String? = nil
     
+    @Published var nama: String? = nil
+    @Published var noHp: String? = nil
+    @Published var jenisBarang: String? = nil
+    @Published var rutePerjalanan: String? = nil
+    @Published var deskripsiBarang: String? = nil
+    @Published var waktu: String? = nil
+    @Published var detailLokasi: String? = nil
+    
+    
+    
 //    func readValue() {
 //        ref.child("path").observeSingleEvent(of: .value) { snapshot in
 //            self.value = snapshot.value as? Int ?? 3
@@ -118,7 +128,32 @@ class ReadViewModel: ObservableObject {
         //deadline
         ref.child("\(laporanId)/barangTelahDitemukan/deadline").observe(.value) { snapshot in
             self.status5Deadline = snapshot.value as? String
+            
         }
+        
+        //laporan
+        ref.child("\(laporanId)/laporan/nama").observe(.value) { snapshot in
+            self.nama = snapshot.value as? String
+        }
+        ref.child("\(laporanId)/laporan/hp").observe(.value) { snapshot in
+            self.noHp = snapshot.value as? String
+        }
+        ref.child("\(laporanId)/laporan/jenis").observe(.value) { snapshot in
+            self.jenisBarang = snapshot.value as? String
+        }
+        ref.child("\(laporanId)/laporan/rutePerjalanan").observe(.value) { snapshot in
+            self.rutePerjalanan = snapshot.value as? String
+        }
+        ref.child("\(laporanId)/laporan/deskripsi").observe(.value) { snapshot in
+            self.deskripsiBarang = snapshot.value as? String
+        }
+        ref.child("\(laporanId)/laporan/waktu").observe(.value) { snapshot in
+            self.waktu = snapshot.value as? String
+        }
+        ref.child("\(laporanId)/laporan/detailLokasi").observe(.value) { snapshot in
+            self.detailLokasi = snapshot.value as? String
+        }
+        
     }
     
 //    func observeTileChange(columnIndex: Int, rowIndex: Int, otp: String){

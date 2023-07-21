@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PencarianView: View {
+    @EnvironmentObject var writevm: WriteViewModel
+    @EnvironmentObject var readvm: ReadViewModel
     @State var tracks = [
         ComponentTrack(dateMonth: "16 Jul", time: "15:30", trackingColor: "green", trackingTitle: "Pencarian Tahap Dua", trackingDescription: "Memasuki proses pencarian di seluruh area stasiun MRT Jakarta.", trackingIcon: "checkmark.circle.fill", trackingStatus: false),
         ComponentTrack(dateMonth: "15 Jul", time: "13:30", trackingColor: "", trackingTitle: "Proses Pencarian", trackingDescription: "Memasuki proses pencarian di lokasi sesuai pelaporan.", trackingIcon: "", trackingStatus: false),
@@ -22,12 +24,11 @@ struct PencarianView: View {
     @State var tanggalKehilangan: Date = Date()
     @State var deskripsiBarang: String = ""
     @State var detailLokasi: String = ""
-    @State var detailWaktu: Date = Date()
+    @State var detailWaktu: String = ""
     @State var lampiranForo: String = ""
     @State var statusLaporan: String = "Memasuki proses pencarian di seluruh area stasiun MRT Jakarta."
     @State var colorStatus: String = "green"
     
-    @EnvironmentObject var writevm: WriteViewModel
     var body: some View {
         VStack {
             ZStack {

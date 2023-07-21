@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LandingPageView: View {
     @EnvironmentObject var writevm: WriteViewModel
+    @EnvironmentObject var readvm: ReadViewModel
     @State var text1 = "ggggggg"
     @State private var selectedTab = 0
     init() {
@@ -23,7 +24,7 @@ struct LandingPageView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             NavigationView {
-                LaporanView()
+                LaporanView().environmentObject(readvm).environmentObject(writevm)
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
                             HStack {
@@ -35,7 +36,8 @@ struct LandingPageView: View {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button(action: {
                                 // Your button action here
-                                print("hhhhh")
+                                print(readvm.status1Tanggal)
+                                print(readvm.status1Waktu)
                             }) {
                                 Image(systemName: "plus.circle.fill")
                                     .font(.system(size: 20))
@@ -161,6 +163,8 @@ struct LandingPageView: View {
             }
             .tag(4)
             
+        }.onAppear(){
+            readvm.observeStatus(laporanId: 0)
         }
         
     }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BatalView: View {
+    @EnvironmentObject var writevm: WriteViewModel
+    @EnvironmentObject var readvm: ReadViewModel
     let tracks = [
                 ComponentTrack(dateMonth: "16 Jul", time: "18:30", trackingColor: "red", trackingTitle: "Barang Tidak Ditemukan", trackingDescription: "Mohon maaf  barang tidak  ditemukan di seluruh area Stasiun MRT Jakarta.", trackingIcon: "xmark.circle.fill", trackingStatus: false),
                 ComponentTrack(dateMonth: "16 Jul", time: "16:30", trackingColor: "", trackingTitle: "Pencarian Tahap Dua", trackingDescription: "Memasuki proses pencarian di seluruh area stasiun MRT Jakarta. ", trackingIcon: "", trackingStatus: false),
@@ -24,7 +26,7 @@ struct BatalView: View {
     @State var tanggalKehilangan: Date = Date()
     @State var deskripsiBarang: String = ""
     @State var detailLokasi: String = ""
-    @State var detailWaktu: Date = Date()
+    @State var detailWaktu: String = ""
     @State var lampiranForo: String = ""
     @State var statusLaporan: String = "Mohon maaf  barang tidak  ditemukan di seluruh area Stasiun MRT Jakarta."
     @State var colorStatus: String = "red"

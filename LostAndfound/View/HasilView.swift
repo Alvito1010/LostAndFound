@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HasilView: View {
+    @EnvironmentObject var writevm: WriteViewModel
+    @EnvironmentObject var readvm: ReadViewModel
     @State var tracks = [
             ComponentTrack(dateMonth: "16 Jul", time: "18:30", trackingColor: "green", trackingTitle: "Barang Telah Ditemukan", trackingDescription: "Barang telah ditemukan di Stasiun Dukuh Atas. Segera ambil barang sebelum 18 Agustus 2023 di Pusat Informasi Stasiun Dukuh Atas.", trackingIcon: "checkmark.circle.fill", trackingStatus: false),
             
@@ -24,7 +26,7 @@ struct HasilView: View {
     @State var tanggalKehilangan: Date = Date()
     @State var deskripsiBarang: String = ""
     @State var detailLokasi: String = ""
-    @State var detailWaktu: Date = Date()
+    @State var detailWaktu: String = ""
     @State var lampiranForo: String = ""
     @State var statusLaporan: String = "Barang telah ditemukan di Stasiun Dukuh Atas. Segera ambil barang sebelum 18 Agustus 2023 di Pusat Informasi Stasiun Dukuh Atas."
     @State var colorStatus: String = "green"
