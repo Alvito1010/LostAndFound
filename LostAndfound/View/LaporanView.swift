@@ -39,11 +39,15 @@ struct LaporanView: View {
                         // Show the button if readvm.status1Bool is false
                         VStack{
                             Spacer()
-                            Text("Kamu kehilangan barang? Jangan panik!")
-                            Text(" Tenang saja kami akan bantu kamu menemukannya.")
-                                    .foregroundColor(.blue) // Set the color of the second sentence to blue
-                            + Text(" Silahkan isi laporan kehilangan berikut!")
-                                // Set the color of the third sentence to black
+                            Group {
+                                Text("Kamu kehilangan barang? Jangan panik! ") +
+                                Text("Tenang saja kami akan bantu kamu menemukannya. ")
+                                    .foregroundColor(Color("MRTBlue"))
+                                    .fontWeight(.bold) +
+                                Text("Silahkan isi laporan kehilangan berikut!")
+                            }.descriptionStyle()
+                                .padding(.horizontal, 30)
+                                .multilineTextAlignment(.center)
 
                             Spacer().frame(height: UIScreen.main.bounds.height * 0.08)
                             Button {
