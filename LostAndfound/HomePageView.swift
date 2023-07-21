@@ -11,35 +11,40 @@ struct HomePageView: View {
     
     //MARK: - BODY
     var body: some View {
-        VStack {
-            Image("SectionAtas")
-                .resizable()
-                .scaledToFit()
-            
-            HStack {
-                Image("MenuKiri")
+        NavigationView {
+            VStack {
+                Image("SectionAtas")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 200)
                 
-                VStack {
-                    Image("LostAndFoundIcon")
-                        .padding(.top, 12)
-                        .padding(.bottom, 5)
+                HStack {
+                    Image("MenuKiri")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200)
+                    
+                    NavigationLink(destination: FirstFormView()) {
+                        VStack {
+                            Image("LostAndFoundIcon")
+                                .padding(.top, 12)
+                                .padding(.bottom, 5)
 
-                    Text("Lost & Found")
-                        .font(.system(size: 11))
+                            Text("Lost & Found")
+                                .font(.system(size: 11))
+                        }
+                    }
+                    .foregroundColor(Color.black)
+                    
+                    Image("MenuKanan")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 130)
                 }
                 
-                Image("MenuKanan")
+                Image("SectionBawah")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 130)
             }
-            
-            Image("SectionBawah")
-                .resizable()
-                .scaledToFit()
         }
     }//: - BODY
 }
