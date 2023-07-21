@@ -32,83 +32,118 @@ struct LaporanView: View {
 //        }
     
     var body: some View {
-        VStack {
-                ZStack(alignment: .top) {
-                    Color.gray.opacity(0.2)
-                    if !(readvm.status1Bool ?? true) {
-                        // Show the button if readvm.status1Bool is false
-                        VStack{
-                            Spacer()
-                            Group {
-                                Text("Kamu kehilangan barang? Jangan panik! ") +
-                                Text("Tenang saja kami akan bantu kamu menemukannya. ")
-                                    .foregroundColor(Color("MRTBlue"))
-                                    .fontWeight(.bold) +
-                                Text("Silahkan isi laporan kehilangan berikut!")
-                            }.descriptionStyle()
-                                .padding(.horizontal, 30)
-                                .multilineTextAlignment(.center)
+        GeometryReader { geometry in
+            VStack (spacing: 0){
+                    ZStack(alignment: .top) {
+                        Color.gray.opacity(0.2)
+                        if !(readvm.status1Bool ?? true) {
+                            // Show the button if readvm.status1Bool is false
+                            VStack{
+                                Spacer()
+                                Group {
+                                    Text("Kamu kehilangan barang? Jangan panik! ") +
+                                    Text("Tenang saja kami akan bantu kamu menemukannya. ")
+                                        .foregroundColor(Color("MRTBlue"))
+                                        .fontWeight(.bold) +
+                                    Text("Silahkan isi laporan kehilangan berikut!")
+                                }.descriptionStyle()
+                                    .padding(.horizontal, 30)
+                                    .multilineTextAlignment(.center)
 
-                            Spacer().frame(height: UIScreen.main.bounds.height * 0.08)
-                            Button {
-            //                    print("tapped")
-                            } label: {
-                                Text("Buat Laporan")
-                                    .activeButtonStyle()
+                                Spacer().frame(height: UIScreen.main.bounds.height * 0.08)
+                                Button {
+                //                    print("tapped")
+                                } label: {
+                                    Text("Buat Laporan")
+                                        .activeButtonStyle()
+                                }
+                                Spacer()
                             }
-                            Spacer()
+                            
+                            
+                        } else {
+                            ScrollView{
+                                CardLaporan(noLaporan: noLaporan, nama: nama, noHp: noHp, jenisBarang:jenisBarang , rutePerjalanan: rutePerjalanan, tanggalKehilangan: tanggalKehilangan, deskripsiBarang: deskripsiBarang, detailLokasi: detailLokasi, detailWaktu: detailWaktu, lampiranForo: lampiranFoto, statusLaporan: statusLaporan, colorStatus: colorStatus, arrayTrack: tracks)
+                            }
                         }
                         
-                        
-                    } else {
-                        ScrollView{
-                            CardLaporan(noLaporan: noLaporan, nama: nama, noHp: noHp, jenisBarang:jenisBarang , rutePerjalanan: rutePerjalanan, tanggalKehilangan: tanggalKehilangan, deskripsiBarang: deskripsiBarang, detailLokasi: detailLokasi, detailWaktu: detailWaktu, lampiranForo: lampiranFoto, statusLaporan: statusLaporan, colorStatus: colorStatus, arrayTrack: tracks)
-                        }
                     }
                     
-                }
-                
-    //            Button("test") {
-    //                print(nama)
-    //                print(noHp)
-    //                print(jenisBarang)
-    //                print(detailWaktu)
-    //                print(detailLokasi)
-    //                print(rutePerjalanan)
-    //                print(deskripsiBarang)
-    //            }
-                
-                ZStack {
-                    Color.white.frame(height: 8)
-                    HStack {
-                        Spacer().frame(width: UIScreen.main.bounds.width * 0.093)
-                        Circle().foregroundColor(.blue).frame(width: 5,height: 5)
-                        Spacer()
+        //            Button("test") {
+        //                print(nama)
+        //                print(noHp)
+        //                print(jenisBarang)
+        //                print(detailWaktu)
+        //                print(detailLokasi)
+        //                print(rutePerjalanan)
+        //                print(deskripsiBarang)
+        //            }
+                    
+                    ZStack {
+                        Color.white.frame(height: 15)
+                        HStack {
+                            Spacer().frame(width: UIScreen.main.bounds.width * 0.093)
+                            Circle().foregroundColor(.blue).frame(width: 5,height: 5)
+                            Spacer()
+                        }
                     }
-                }
-            
-            
+                
+                
+            }
         }
+        
         .onChange(of: readvm.status1Tanggal) { newStatus1Tanggal in
-                    // Update the ComponentTrack with the new date
-                    if let index = tracks.firstIndex(where: { $0.trackingTitle == "Laporan Diterima" }) {
-                        tracks[index].dateMonth = newStatus1Tanggal ?? ""
+            // Check if status1Tanggal and status1Waktu are not nil and tracks is empty
+            if let newStatus1Tanggal = newStatus1Tanggal,
+               let newStatus1Waktu = readvm.status1Waktu,
+               tracks.isEmpty {
+                // Add a sample ComponentTrack to the tracks array
+                tracks = [
+                    ComponentTrack(
+                        dateMonth: newStatus1Tanggal,
+                        time: newStatus1Waktu,
+                        trackingColor: "green",
+                        trackingTitle: "Laporan Dibuat",
+                        trackingDescription: "Laporan telah dibuat oleh \(readvm.nama ?? "").",
+                        trackingIcon: "checkmark.circle.fill",
+                        trackingStatus: false
+                    )
+                ]
+            } else {
+                // Update the date and time of the ComponentTrack
+                if let index = tracks.firstIndex(where: { $0.trackingTitle == "Laporan Dibuat" }) {
+                    tracks[index].dateMonth = newStatus1Tanggal ?? ""
+                    tracks[index].time = readvm.status1Waktu ?? ""
+                }
+            }
+
+        }
+        .onChange(of: readvm.status2Bool) { newStatus2Bool in
+            if newStatus2Bool ?? false {
+                        // Add a new ComponentTrack when status2Bool becomes true
+                        tracks.append(
+                            ComponentTrack(
+                                dateMonth: "", // Provide the date/month value for the new track
+                                time: "",      // Provide the time value for the new track
+                                trackingColor: "green", // Customize the color for the new track
+                                trackingTitle: "Laporan Diterima", // Customize the title for the new track
+                                trackingDescription: "Laporan telah diterima oleh petugas MRT Jakarta", // Customize the description for the new track
+                                trackingIcon: "checkmark.circle.fill", // Customize the icon for the new track
+                                trackingStatus: false // Set the status for the new track (true if completed, false if not)
+                            )
+                        )
                     }
                 }
-        .onChange(of: readvm.status1Tanggal) { newStatus1Tanggal in
-                    // Check if status1Tanggal is not nil and tracks is empty
-                    if let newStatus1Tanggal = newStatus1Tanggal, tracks.isEmpty {
-                        tracks = [
-                            ComponentTrack(dateMonth: newStatus1Tanggal, time: "09:30", trackingColor: "green", trackingTitle: "Laporan Diterima", trackingDescription: "Laporan telah diterima oleh petugas MRT Jakarta.", trackingIcon: "checkmark.circle.fill", trackingStatus: false)
-                        ]
-                    }
-                }
-        .onChange(of: readvm.status1Waktu) { newStatus1Waktu in
-                    // Update the time of the ComponentTrack
-                    if let index = tracks.firstIndex(where: { $0.trackingTitle == "Laporan Diterima" }) {
-                        tracks[index].time = newStatus1Waktu ?? ""
-                    }
-                }
+
+
+
+
+//        .onChange(of: readvm.status1Waktu) { newStatus1Waktu in
+//                    // Update the time of the ComponentTrack
+//                    if let index = tracks.firstIndex(where: { $0.trackingTitle == "Laporan Diterima" }) {
+//                        tracks[index].time = newStatus1Waktu ?? ""
+//                    }
+//                }
         .onChange(of: readvm.nama) { newName in
             nama = newName ?? ""
         }
