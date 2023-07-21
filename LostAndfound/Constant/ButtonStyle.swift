@@ -17,7 +17,7 @@ struct ActiveButtonModifier: ViewModifier {
             .frame(width: 186, height: 44)
             .background(
                 RoundedRectangle(cornerRadius: 16, style: .circular)
-                    .fill(Color.blue)
+                    .fill(Color("MRTBlue"))
             )
     }
 }

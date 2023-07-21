@@ -22,6 +22,11 @@
 		2A0AFAB12A69FE1F00F08BC9 /* EffectStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0AFAB02A69FE1F00F08BC9 /* EffectStyle.swift */; };
 		2A0AFAB32A69FE2600F08BC9 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0AFAB22A69FE2600F08BC9 /* ButtonStyle.swift */; };
 		2A0AFAB52A69FE2E00F08BC9 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0AFAB42A69FE2E00F08BC9 /* FontStyle.swift */; };
+		2A184B302A6A6F30004CBE9D /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A184B2F2A6A6F30004CBE9D /* HomePageView.swift */; };
+		2A446D7B2A6A633D0072E794 /* FirstFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A446D7A2A6A633D0072E794 /* FirstFormView.swift */; };
+		2A446D7F2A6A64DC0072E794 /* ExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A446D7E2A6A64DC0072E794 /* ExampleView.swift */; };
+		2A63458E2A6AB11E008D0FB2 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A63458D2A6AB11E008D0FB2 /* DatePicker.swift */; };
+		2AEDE4552A6AA97300EA4F52 /* SecondFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDE4542A6AA97300EA4F52 /* SecondFormView.swift */; };
 		DBF4175D2A6819DB00E70C2F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DBF4175C2A6819DB00E70C2F /* FirebaseAnalytics */; };
 		DBF4175F2A6819DB00E70C2F /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DBF4175E2A6819DB00E70C2F /* FirebaseAnalyticsSwift */; };
 		DBF417612A6819DB00E70C2F /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = DBF417602A6819DB00E70C2F /* FirebaseDatabase */; };
@@ -53,6 +58,11 @@
 		2A0AFAB02A69FE1F00F08BC9 /* EffectStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectStyle.swift; sourceTree = "<group>"; };
 		2A0AFAB22A69FE2600F08BC9 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		2A0AFAB42A69FE2E00F08BC9 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
+		2A184B2F2A6A6F30004CBE9D /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		2A446D7A2A6A633D0072E794 /* FirstFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFormView.swift; sourceTree = "<group>"; };
+		2A446D7E2A6A64DC0072E794 /* ExampleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleView.swift; sourceTree = "<group>"; };
+		2A63458D2A6AB11E008D0FB2 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		2AEDE4542A6AA97300EA4F52 /* SecondFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondFormView.swift; sourceTree = "<group>"; };
 		DBF4176C2A681ADE00E70C2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DBF4176E2A681BAD00E70C2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DBF4176F2A681DD600E70C2F /* WriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewModel.swift; sourceTree = "<group>"; };
@@ -154,8 +164,16 @@
 				DBF4176E2A681BAD00E70C2F /* Info.plist */,
 				11D8A89E2A60FCB000C71BAC /* LostAndfoundApp.swift */,
 				11D8A8A02A60FCB000C71BAC /* ContentView.swift */,
+				DBF4176F2A681DD600E70C2F /* WriteViewModel.swift */,
+				2A446D7E2A6A64DC0072E794 /* ExampleView.swift */,
+				DBF417732A68213A00E70C2F /* ReadViewModel.swift */,
+				DBF417712A681E9700E70C2F /* LandingPageView.swift */,
 				11D8A8A22A60FCB100C71BAC /* Assets.xcassets */,
 				11D8A8A42A60FCB100C71BAC /* Preview Content */,
+				2A446D7A2A6A633D0072E794 /* FirstFormView.swift */,
+				2A184B2F2A6A6F30004CBE9D /* HomePageView.swift */,
+				2AEDE4542A6AA97300EA4F52 /* SecondFormView.swift */,
+				2A63458D2A6AB11E008D0FB2 /* DatePicker.swift */,
 			);
 			path = LostAndfound;
 			sourceTree = "<group>";
@@ -269,12 +287,17 @@
 				1160009E2A68F35300C6CA44 /* SubCardView.swift in Sources */,
 				2A0AFAB52A69FE2E00F08BC9 /* FontStyle.swift in Sources */,
 				2A0AFAB12A69FE1F00F08BC9 /* EffectStyle.swift in Sources */,
+				2A446D7F2A6A64DC0072E794 /* ExampleView.swift in Sources */,
 				11D8A8A12A60FCB000C71BAC /* ContentView.swift in Sources */,
 				11A47A162A6A2AF10083DD07 /* LaporanView.swift in Sources */,
+				2AEDE4552A6AA97300EA4F52 /* SecondFormView.swift in Sources */,
+				2A63458E2A6AB11E008D0FB2 /* DatePicker.swift in Sources */,
 				11D8A89F2A60FCB000C71BAC /* LostAndfoundApp.swift in Sources */,
 				11A47A1C2A6A32480083DD07 /* BatalView.swift in Sources */,
 				11A47A1A2A6A31E20083DD07 /* SelesaiView.swift in Sources */,
 				DBF417742A68213A00E70C2F /* ReadViewModel.swift in Sources */,
+				2A446D7B2A6A633D0072E794 /* FirstFormView.swift in Sources */,
+				2A184B302A6A6F30004CBE9D /* HomePageView.swift in Sources */,
 				2A0AFAB32A69FE2600F08BC9 /* ButtonStyle.swift in Sources */,
 				11A47A182A6A2B240083DD07 /* PencarianView.swift in Sources */,
 				11A47A132A6A26340083DD07 /* CardLaporan.swift in Sources */,
