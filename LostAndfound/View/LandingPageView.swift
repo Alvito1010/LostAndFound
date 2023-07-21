@@ -201,9 +201,3 @@ struct LandingPageView_Previews: PreviewProvider {
         LandingPageView()
     }
 }
-
-
-
-
-
-
