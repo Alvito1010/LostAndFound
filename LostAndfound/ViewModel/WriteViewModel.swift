@@ -76,6 +76,7 @@ class WriteViewModel: ObservableObject{
                     status5NodeRef.child("waktu").setValue("")
                     status5NodeRef.child("tanggal").setValue("")
                     status5NodeRef.child("bool").setValue(false)
+                    status5NodeRef.child("deadline").setValue("")
                     
                     let status6NodeRef = self.ref.child("\(i)/barangTelahDiambil")
                     status6NodeRef.child("waktu").setValue("")
