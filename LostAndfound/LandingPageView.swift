@@ -91,6 +91,7 @@ struct LandingPageView: View {
             .tag(2)
             
             NavigationView {
+                
                 SelesaiView()
                     .navigationBarTitle(tabNavigationTitle)
                     .toolbar {
@@ -242,10 +243,14 @@ struct HasilView: View {
 struct SelesaiView: View {
     var body: some View{
         VStack {
-            ZStack {
-                Color.gray.opacity(0.3)
+            ZStack(alignment: .top) {
+                Color.gray.opacity(0.2)
+                VStack{
+//                    ScrollView{
+                        SubSelesaiView()
+//                    }
+                }
             }
-            
             ZStack {
                 Color.white.frame(height: 8)
                 HStack {
@@ -261,11 +266,14 @@ struct SelesaiView: View {
 struct BatalView: View {
     var body: some View{
         VStack {
-            
-            ZStack {
-                Color.gray.opacity(0.3)
+            ZStack(alignment: .top) {
+                Color.gray.opacity(0.2)
+                VStack{
+//                    ScrollView{
+                        SubBatalView()
+//                    }
+                }
             }
-            
             ZStack {
                 Color.white.frame(height: 8)
                 HStack {
