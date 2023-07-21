@@ -21,12 +21,15 @@ struct LandingPageView: View {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             VStack {
                                 Spacer().frame(height: 90)
-                                Button {
-                                    // Your button action here
-                                } label: {
-                                    Image(systemName: "plus.circle.fill").font(.system(size: 20))
-                                }
-                                .padding(.trailing, 16) // Adjust the padding as needed
+                                HStack {
+                                    Spacer().frame(width: 340)
+                                    Button {
+                                        // Your button action here
+                                    } label: {
+                                        Image(systemName: "plus.circle.fill").font(.system(size: 20))
+                                    }
+                                .padding(.trailing, 16)
+                                } // Adjust the padding as needed
                             }
                         }
                     }
@@ -40,6 +43,22 @@ struct LandingPageView: View {
             NavigationView {
                 PencarianView()
                     .navigationBarTitle(tabNavigationTitle)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            VStack {
+                                Spacer().frame(height: 90)
+                                HStack {
+                                    Spacer().frame(width: 340)
+                                    Button {
+                                        // Your button action here
+                                    } label: {
+                                        Image(systemName: "plus.circle.fill").font(.system(size: 20))
+                                    }
+                                .padding(.trailing, 16)
+                                } // Adjust the padding as needed
+                            }
+                        }
+                    }
             }
             .tabItem {
                 createTabItem(imageName: "magnifyingglass", title: "Pencarian", index: 1)
@@ -49,6 +68,22 @@ struct LandingPageView: View {
             NavigationView {
                 HasilView()
                     .navigationBarTitle(tabNavigationTitle)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            VStack {
+                                Spacer().frame(height: 90)
+                                HStack {
+                                    Spacer().frame(width: 340)
+                                    Button {
+                                        // Your button action here
+                                    } label: {
+                                        Image(systemName: "plus.circle.fill").font(.system(size: 20))
+                                    }
+                                .padding(.trailing, 16)
+                                } // Adjust the padding as needed
+                            }
+                        }
+                    }
             }
             .tabItem {
                 createTabItem(imageName: "archivebox.fill", title: "Hasil", index: 2)
@@ -58,6 +93,22 @@ struct LandingPageView: View {
             NavigationView {
                 SelesaiView()
                     .navigationBarTitle(tabNavigationTitle)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            VStack {
+                                Spacer().frame(height: 90)
+                                HStack {
+                                    Spacer().frame(width: 340)
+                                    Button {
+                                        // Your button action here
+                                    } label: {
+                                        Image(systemName: "plus.circle.fill").font(.system(size: 20))
+                                    }
+                                .padding(.trailing, 16)
+                                } // Adjust the padding as needed
+                            }
+                        }
+                    }
             }
             .tabItem {
                 createTabItem(imageName: "checkmark.bubble.fill", title: "Selesai", index: 3)
@@ -67,6 +118,22 @@ struct LandingPageView: View {
             NavigationView {
                 BatalView()
                     .navigationBarTitle(tabNavigationTitle)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            VStack {
+                                Spacer().frame(height: 90)
+                                HStack {
+                                    Spacer().frame(width: 340)
+                                    Button {
+                                        // Your button action here
+                                    } label: {
+                                        Image(systemName: "plus.circle.fill").font(.system(size: 20))
+                                    }
+                                .padding(.trailing, 16)
+                                } // Adjust the padding as needed
+                            }
+                        }
+                    }
             }
             .tabItem {
                 createTabItem(imageName: "x.circle.fill", title: "Batal", index: 4)
@@ -119,7 +186,7 @@ struct LaporanView: View {
     var body: some View {
         VStack {
             ZStack {
-                Color.gray.opacity(0.3)
+                Color.gray.opacity(0.25)
             }
             
             ZStack {
