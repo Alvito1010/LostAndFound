@@ -25,30 +25,34 @@ struct SubBatalView: View {
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
         }
     var body: some View {
-        LazyVStack(){
-            HStack{
-                Text("Nomor Laporan: LB140720230408")
-                    .foregroundColor(.accentColor)
-                    .fontWeight(.semibold)
-                    .font(.system(size: 16))
-                Spacer()
-            }
-            .padding()
-            .background(.white)
-            .cornerRadius(12)
-            .padding(.top,16)
-            .padding(.bottom,10)
-            LazyVStack(spacing: 0){
-                ForEach(tracks, id: \.trackingTitle) { track in
-                    ComponentTrack(dateMonth: track.dateMonth, time: track.time, trackingColor: track.trackingColor, trackingTitle: track.trackingTitle, trackingDescription: track.trackingDescription, trackingIcon: track.trackingIcon, trackingStatus: track.trackingStatus)
+        VStack{
+            LazyVStack(){
+                HStack{
+                    Text("Nomor Laporan: LB140720230408")
+                        .foregroundColor(.accentColor)
+                        .fontWeight(.semibold)
+                        .font(.system(size: 16))
+                    Spacer()
                 }
-            }.padding()
-                .padding(.vertical, 8)
+                .padding()
                 .background(.white)
                 .cornerRadius(12)
-            
+                .padding(.top,16)
+                .padding(.bottom,10)
+                LazyVStack(spacing: 0){
+                    ForEach(tracks, id: \.trackingTitle) { track in
+                        ComponentTrack(dateMonth: track.dateMonth, time: track.time, trackingColor: track.trackingColor, trackingTitle: track.trackingTitle, trackingDescription: track.trackingDescription, trackingIcon: track.trackingIcon, trackingStatus: track.trackingStatus)
+                    }
+                }.padding()
+                    .padding(.vertical, 8)
+                    .background(.white)
+                    .cornerRadius(12)
+                
+            }
+            Spacer()
         }
         .padding(.horizontal)
+        .background(.gray.opacity(0.2))
     }
 }
 

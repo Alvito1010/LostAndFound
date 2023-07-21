@@ -27,6 +27,7 @@ struct SubSelesaiView: View {
     var body: some View {
         
 //        NavigationView{
+        VStack{
             LazyVStack(){
                 HStack{
                     Text("Nomor Laporan: LB140720230408")
@@ -48,9 +49,14 @@ struct SubSelesaiView: View {
                     .padding(.vertical, 8)
                     .background(.white)
                     .cornerRadius(12)
+                Spacer()
                 
             }
-            .padding(.horizontal)
+            Spacer()
+        }.padding(.horizontal)
+            .background(.gray.opacity(0.2))
+            
+        
 
     }
 }
