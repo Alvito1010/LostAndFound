@@ -89,7 +89,9 @@ struct HasilView: View {
             }
         }
         .onAppear {
-            updateTracks()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    updateTracks()
+                }
         }
         .onChange(of: readvm.status7Bool) { newStatus7Bool in
             updateTracks()

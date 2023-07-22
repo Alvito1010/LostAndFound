@@ -90,7 +90,9 @@ struct LaporanView: View {
             }
         }
         .onAppear {
-            updateTracks()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    updateTracks()
+                }
         }
         .onChange(of: readvm.status2Bool) { newStatus2Bool in
             updateTracks()
