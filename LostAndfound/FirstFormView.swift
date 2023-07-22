@@ -17,9 +17,7 @@ struct FirstFormView: View {
     //MARK: - BODY
     var body: some View {
         //MARK: - MAIN WRAPPER FOR ICON, TEXT, TEXTFIELD & BUTTON (VSTACK)
-        VStack(alignment: .center) {
-            Spacer()
-            
+        VStack(alignment: .center) {            
             //MRT ICON
             VStack(spacing: 50) {
                 Image("MRTIcon")
@@ -92,21 +90,12 @@ struct FirstFormView: View {
             //MARK: - BUTTON SELANJUTNYA (VSTACK)
             VStack(alignment: .center) {
                 //BUTTON SELANJUTNYA
-                Button(action: {
-                    // TODO: - NEXT PAGE
+                Button {
                     
-                }) {
+                } label: {
                     Text("Selanjutnya")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                        .foregroundColor(disableForm ? Color("TextGray") : Color.white)
-                        .frame(width: 186, height: 44)
-                        .background(
-                            RoundedRectangle(cornerRadius: 16, style: .circular)
-                                .fill(disableForm ? Color("ButtonGray") : Color("MRTBlue"))
-                        )
-                }//: - BUTTON SELANJUTNYA
-                .disabled(disableForm)
+                        .activeButtonStyle()
+                }
             }//: - BUTTON SELANJUTNYA (VSTACK)
         }
         .padding(23)
