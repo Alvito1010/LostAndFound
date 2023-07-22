@@ -10,11 +10,9 @@ import SwiftUI
 struct PencarianView: View {
     @EnvironmentObject var writevm: WriteViewModel
     @EnvironmentObject var readvm: ReadViewModel
-    @State var tracks = [
-        ComponentTrack(dateMonth: "16 Jul", time: "15:30", trackingColor: "green", trackingTitle: "Pencarian Tahap Dua", trackingDescription: "Memasuki proses pencarian di seluruh area stasiun MRT Jakarta.", trackingIcon: "checkmark.circle.fill", trackingStatus: false),
-        ComponentTrack(dateMonth: "15 Jul", time: "13:30", trackingColor: "", trackingTitle: "Proses Pencarian", trackingDescription: "Memasuki proses pencarian di lokasi sesuai pelaporan.", trackingIcon: "", trackingStatus: false),
-        ComponentTrack(dateMonth: "14 Jul", time: "09:30", trackingColor: "", trackingTitle: "Laporan Diterima", trackingDescription: "Laporan telah diterima oleh petugas MRT Jakarta.", trackingIcon: "", trackingStatus: false),
-        ]
+    
+    @State var tracks: [ComponentTrack] = []
+    
     //DATA CARD LAPORAN
     @State var noLaporan: String = "LB140720230408"
     @State var nama: String = "Joe taslim"
@@ -34,7 +32,7 @@ struct PencarianView: View {
             VStack (spacing: 0){
                     ZStack(alignment: .top) {
                         Color.gray.opacity(0.2)
-                        if !(readvm.status2Bool ?? true) {
+                        if !(readvm.status3Bool ?? true) {
                             // Show the button if readvm.status1Bool is false
                             VStack{
                                 Spacer()
@@ -90,28 +88,68 @@ struct PencarianView: View {
             }
         }
         
-        .onChange(of: readvm.status1Tanggal) { newStatus1Tanggal in
-                    // Update the ComponentTrack with the new date
-                    if let index = tracks.firstIndex(where: { $0.trackingTitle == "Laporan Diterima" }) {
-                        tracks[index].dateMonth = newStatus1Tanggal ?? ""
+        .onAppear {
+                    updateTracks()
+                }
+                .onChange(of: readvm.status4Bool) { newStatus4Bool in
+                    updateTracks()
+                }
+                .onChange(of: readvm.status3Tanggal) { newStatus3Tanggal in
+                    if let newStatus3Tanggal = newStatus3Tanggal, let newStatus3Waktu = readvm.status3Waktu, tracks.isEmpty {
+                        updateTracks()
+                    } else {
+                        if let index = tracks.firstIndex(where: { $0.trackingTitle == "Laporan Dibuat" }) {
+                            tracks[index].dateMonth = newStatus3Tanggal ?? ""
+                            tracks[index].time = readvm.status3Waktu ?? ""
+                        }
                     }
                 }
-        .onChange(of: readvm.status1Tanggal) { newStatus1Tanggal in
-                    // Check if status1Tanggal is not nil and tracks is empty
-                    if let newStatus1Tanggal = newStatus1Tanggal, tracks.isEmpty {
+            }
+
+            private func updateTracks() {
+                if let status3Bool = readvm.status3Bool {
+                    if status3Bool && (readvm.status4Bool ?? false) {
+                        // Show both tracks when status3Bool is true and status4Bool is true
                         tracks = [
-                            ComponentTrack(dateMonth: newStatus1Tanggal, time: "09:30", trackingColor: "green", trackingTitle: "Laporan Diterima", trackingDescription: "Laporan telah diterima oleh petugas MRT Jakarta.", trackingIcon: "checkmark.circle.fill", trackingStatus: false)
+                            ComponentTrack(
+                                dateMonth: readvm.status4Tanggal ?? "",
+                                time: readvm.status4Waktu ?? "",
+                                trackingColor: "green",
+                                trackingTitle: "Laporan Diterima",
+                                trackingDescription: "Laporan telah diterima oleh petugas MRT Jakarta.",
+                                trackingIcon: "",
+                                trackingStatus: false
+                            ),
+                            ComponentTrack(
+                                dateMonth: readvm.status3Tanggal ?? "",
+                                time: readvm.status3Waktu ?? "",
+                                trackingColor: "",
+                                trackingTitle: "Laporan Dibuat",
+                                trackingDescription: "Laporan telah Dibuat oleh \(readvm.nama ?? "").",
+                                trackingIcon: "",
+                                trackingStatus: false
+                            ),
                         ]
+                    } else if status3Bool {
+                        // Show only the "Laporan Dibuat" track when status3Bool is true and status4Bool is false
+                        tracks = [
+                            ComponentTrack(
+                                dateMonth: readvm.status3Tanggal ?? "",
+                                time: readvm.status3Waktu ?? "",
+                                trackingColor: "green",
+                                trackingTitle: "Laporan Dibuat",
+                                trackingDescription: "Laporan telah dibuat oleh \(readvm.nama ?? "").",
+                                trackingIcon: "checkmark.circle.fill",
+                                trackingStatus: false
+                            )
+                        ]
+                    } else {
+                        // Show no tracks when both status3Bool and status4Bool are false
+                        tracks = []
                     }
                 }
-        .onChange(of: readvm.status1Waktu) { newStatus1Waktu in
-                    // Update the time of the ComponentTrack
-                    if let index = tracks.firstIndex(where: { $0.trackingTitle == "Laporan Diterima" }) {
-                        tracks[index].time = newStatus1Waktu ?? ""
-                    }
-                }
-    }
-}
+            }
+        }
 
 struct PencarianView_Previews: PreviewProvider {
     static var previews: some View {
