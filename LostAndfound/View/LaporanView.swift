@@ -33,7 +33,8 @@ struct LaporanView: View {
             VStack(spacing: 0) {
                 ZStack(alignment: .top) {
                     Color.gray.opacity(0.2)
-                    if !(readvm.status1Bool ?? true) {
+                    if !(readvm.status1Bool ?? false) || (readvm.status3Bool ?? false) || (readvm.status4Bool ?? false) || (readvm.status5Bool ?? false) || (readvm.status6Bool ?? false) || (readvm.status7Bool ?? false) ||
+                        (readvm.laporanBatal ?? false) {
                         // Show the button if readvm.status1Bool is false
                         VStack {
                             Spacer()
@@ -93,6 +94,9 @@ struct LaporanView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     updateTracks()
                 }
+        }
+        .onChange(of: readvm.status1Bool) { newStatus1Bool in
+            updateTracks()
         }
         .onChange(of: readvm.status2Bool) { newStatus2Bool in
             updateTracks()

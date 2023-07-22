@@ -32,7 +32,8 @@ struct HasilView: View {
             VStack(spacing: 0) {
                 ZStack(alignment: .top) {
                     Color.gray.opacity(0.2)
-                    if !(readvm.status5Bool ?? true || readvm.status7Bool ?? true) {
+                    if !(readvm.status5Bool ?? true || readvm.status7Bool ?? true) || (readvm.status6Bool ?? false) ||
+                        (readvm.laporanBatal ?? false) {
                         // Show the button if readvm.status5Bool is false
                         VStack {
                             Spacer()
@@ -167,7 +168,7 @@ struct HasilView: View {
                         time: readvm.status5Waktu ?? "",
                         trackingColor: "green",
                         trackingTitle: "Barang Telah Ditemukan",
-                        trackingDescription: "Barang telah ditemukan di Stasiun Dukuh Atas. Segera ambil barang sebelum \(readvm.status5Deadline ?? "") di Pusat Informasi Stasiun Dukuh Atas",
+                        trackingDescription: "Barang telah ditemukan di \(readvm.lokasiBarang ?? ""). Segera ambil barang sebelum \(readvm.status5Deadline ?? "") di Pusat Informasi \(readvm.lokasiBarang ?? "")",
                         trackingIcon: "checkmark.circle.fill",
                         trackingStatus: false
                     ),

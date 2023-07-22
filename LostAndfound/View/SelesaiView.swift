@@ -32,7 +32,8 @@ struct SelesaiView: View {
             VStack(spacing: 0) {
                 ZStack(alignment: .top) {
                     Color.gray.opacity(0.2)
-                    if !(readvm.status5Bool ?? true || readvm.status7Bool ?? true) {
+                    if !(readvm.status6Bool ?? true || readvm.status7Bool ?? true) ||
+                        (readvm.laporanBatal ?? false) {
                         // Show the button if readvm.status5Bool is false
                         VStack {
                             Spacer()
@@ -92,6 +93,9 @@ struct SelesaiView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     updateTracks()
                 }
+        }
+        .onChange(of: readvm.status6Bool) { newStatus7Bool in
+            updateTracks()
         }
         .onChange(of: readvm.status7Bool) { newStatus7Bool in
             updateTracks()
@@ -166,9 +170,18 @@ struct SelesaiView: View {
                         dateMonth: readvm.status6Tanggal ?? "",
                         time: readvm.status6Waktu ?? "",
                         trackingColor: "green",
-                        trackingTitle: "Barang Telah Ditemukan",
-                        trackingDescription: "Barang telah ditemukan di Stasiun Dukuh Atas. Segera ambil barang sebelum  di Pusat Informasi Stasiun Dukuh Atas",
+                        trackingTitle: "Barang Telah Diambil",
+                        trackingDescription: "Barang telah diambil oleh \(readvm.nama ?? "") di \(readvm.lokasiBarang ?? "").",
                         trackingIcon: "checkmark.circle.fill",
+                        trackingStatus: false
+                    ),
+                    ComponentTrack(
+                        dateMonth: readvm.status5Tanggal ?? "",
+                        time: readvm.status5Waktu ?? "",
+                        trackingColor: "",
+                        trackingTitle: "Barang Telah Ditemukan",
+                        trackingDescription: "Barang telah ditemukan di \(readvm.lokasiBarang ?? ""). Segera ambil barang sebelum  di Pusat Informasi \(readvm.lokasiBarang ?? "").",
+                        trackingIcon: "",
                         trackingStatus: false
                     ),
                     ComponentTrack(

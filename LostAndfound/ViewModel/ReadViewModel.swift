@@ -45,6 +45,8 @@ class ReadViewModel: ObservableObject {
     @Published var waktu: String? = nil
     @Published var detailLokasi: String? = nil
     
+    @Published var lokasiBarang: String? = nil
+    @Published var laporanBatal: Bool? = nil
     
     
 //    func readValue() {
@@ -152,6 +154,12 @@ class ReadViewModel: ObservableObject {
         }
         ref.child("\(laporanId)/laporan/detailLokasi").observe(.value) { snapshot in
             self.detailLokasi = snapshot.value as? String
+        }
+        ref.child("\(laporanId)/laporan/lokasiBarang").observe(.value) { snapshot in
+            self.lokasiBarang = snapshot.value as? String
+        }
+        ref.child("\(laporanId)/laporan/laporanBatal").observe(.value) { snapshot in
+            self.laporanBatal = snapshot.value as? Bool
         }
         
     }

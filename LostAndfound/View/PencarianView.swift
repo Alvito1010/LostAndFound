@@ -32,7 +32,8 @@ struct PencarianView: View {
             VStack (spacing: 0){
                     ZStack(alignment: .top) {
                         Color.gray.opacity(0.2)
-                        if !(readvm.status3Bool ?? true) {
+                        if !(readvm.status3Bool ?? true) || (readvm.status5Bool ?? false) || (readvm.status6Bool ?? false) || (readvm.status7Bool ?? false) ||
+                            (readvm.laporanBatal ?? false){
                             // Show the button if readvm.status1Bool is false
                             VStack{
                                 Spacer()
