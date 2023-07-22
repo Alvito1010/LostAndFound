@@ -17,11 +17,9 @@ struct FirstFormView: View {
     //MARK: - BODY
     var body: some View {
         //MARK: - MAIN WRAPPER FOR ICON, TEXT, TEXTFIELD & BUTTON (VSTACK)
-        VStack(alignment: .center) {
-            Spacer()
-            
+        VStack(alignment: .center) {            
             //MRT ICON
-            VStack(spacing: 50) {
+            VStack(alignment: .center, spacing: 50) {
                 Image("MRTIcon")
                 
                 Group {
@@ -53,7 +51,7 @@ struct FirstFormView: View {
                                 Image(systemName: "xmark.circle.fill")
                                     .padding()
                                     .offset(x: 10)
-                                    .foregroundColor(Color.accentColor)
+                                    .foregroundColor(Color("MRTBlue"))
                                     .opacity(namaLengkap.isEmpty ? 0.0 : 1.0)
                                     .onTapGesture {
                                         namaLengkap = ""
@@ -76,7 +74,7 @@ struct FirstFormView: View {
                                 Image(systemName: "xmark.circle.fill")
                                     .padding()
                                     .offset(x: 10)
-                                    .foregroundColor(Color.accentColor)
+                                    .foregroundColor(Color("MRTBlue"))
                                     .opacity(noHP.isEmpty ? 0.0 : 1.0) // Corrected to use noHP
                                     .onTapGesture {
                                         noHP = ""
@@ -92,10 +90,9 @@ struct FirstFormView: View {
             //MARK: - BUTTON SELANJUTNYA (VSTACK)
             VStack(alignment: .center) {
                 //BUTTON SELANJUTNYA
-                Button(action: {
-                    // TODO: - NEXT PAGE
+                Button {
                     
-                }) {
+                } label: {
                     Text("Selanjutnya")
                         .font(.headline)
                         .fontWeight(.semibold)
@@ -105,7 +102,7 @@ struct FirstFormView: View {
                             RoundedRectangle(cornerRadius: 16, style: .circular)
                                 .fill(disableForm ? Color("ButtonGray") : Color("MRTBlue"))
                         )
-                }//: - BUTTON SELANJUTNYA
+                }
                 .disabled(disableForm)
             }//: - BUTTON SELANJUTNYA (VSTACK)
         }

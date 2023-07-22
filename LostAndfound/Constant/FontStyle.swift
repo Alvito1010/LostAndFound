@@ -7,7 +7,22 @@
 
 import SwiftUI
 
-//MARK: - TITLE & DIALOGUE STYLE MODIFIER
+//MARK: - TITLE STYLE MODIFIER
+struct TitleModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .fontWeight(.bold)
+            .font(.largeTitle)
+    }
+}
+
+extension View {
+    func titleStyle() -> some View {
+        modifier(TitleModifier())
+    }
+}
+
+//MARK: - HEADER STYLE MODIFIER
 struct HeaderModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
