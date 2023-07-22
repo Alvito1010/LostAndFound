@@ -84,7 +84,7 @@ struct LaporanView: View {
                     Color.white.frame(height: 15)
                     HStack {
                         Spacer().frame(width: UIScreen.main.bounds.width * 0.093)
-                        Circle().foregroundColor(.blue).frame(width: 5, height: 5)
+                        Circle().foregroundColor(Color("MRTBlue")).frame(width: 5, height: 5)
                         Spacer()
                     }
                 }
@@ -158,6 +158,8 @@ struct LaporanView: View {
                         trackingStatus: false
                     ),
                 ]
+                statusLaporan = "Laporan telah diterima oleh petugas MRT Jakarta." // Change the statusLaporan value here
+
             } else if status1Bool {
                 // Show only the "Laporan Dibuat" track when status1Bool is true and status2Bool is false
                 tracks = [
@@ -171,12 +173,16 @@ struct LaporanView: View {
                         trackingStatus: false
                     )
                 ]
+                statusLaporan = "Laporan telah dibuat oleh \(readvm.nama ?? "")." // Change the statusLaporan value here
+
             } else {
                 // Show no tracks when both status1Bool and status2Bool are false
                 tracks = []
+                statusLaporan = "" // Change the statusLaporan value here
             }
         }
     }
+
 }
 
 struct LaporanView_Previews: PreviewProvider {

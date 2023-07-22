@@ -83,7 +83,7 @@ struct SelesaiView: View {
                     Color.white.frame(height: 15)
                     HStack {
                         Spacer().frame(width: UIScreen.main.bounds.width * 0.692)
-                        Circle().foregroundColor(.blue).frame(width: 5, height: 5)
+                        Circle().foregroundColor(Color("MRTBlue")).frame(width: 5, height: 5)
                         Spacer()
                     }
                 }
@@ -99,6 +99,9 @@ struct SelesaiView: View {
         }
         .onChange(of: readvm.status7Bool) { newStatus7Bool in
             updateTracks()
+        }
+        .onChange(of: readvm.jenisBarang) { newJenisBarang in
+            jenisBarang = newJenisBarang ?? ""
         }
         .onChange(of: readvm.status3Tanggal) { newStatus3Tanggal in
             if let newStatus3Tanggal = newStatus3Tanggal, let newStatus3Waktu = readvm.status3Waktu, tracks.isEmpty {
@@ -163,6 +166,12 @@ struct SelesaiView: View {
                         trackingStatus: false
                     ),
                 ]
+                
+                statusLaporan = "Barang tidak ditemukan" // Change the statusLaporan value here
+                colorStatus = "red"
+                jenisBarang = readvm.jenisBarang ?? ""
+                
+                
             } else if !status7Bool && status6Bool {
                 // Show tracks when status6Bool is true and status7Bool is false
                 tracks = [
@@ -221,6 +230,12 @@ struct SelesaiView: View {
                         trackingStatus: false
                     ),
                 ]
+                
+                statusLaporan = "Barang sudah diambil oleh \(readvm.nama ?? "")" // Change the statusLaporan value here
+                colorStatus = "green"
+                jenisBarang = readvm.jenisBarang ?? ""
+                
+                
             } else {
                 // Show no tracks when both status6Bool and status7Bool are false or both are true
                 tracks = []

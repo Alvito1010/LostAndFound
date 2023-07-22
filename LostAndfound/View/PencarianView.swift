@@ -24,7 +24,7 @@ struct PencarianView: View {
     @State var detailLokasi: String = ""
     @State var detailWaktu: String = ""
     @State var lampiranFoto: String = ""
-    @State var statusLaporan: String = "Memasuki proses pencarian di seluruh area stasiun MRT Jakarta."
+    @State var statusLaporan: String = "Pencarian tahap satu di stasiun-stasiun MRT Jakarta."
     @State var colorStatus: String = "green"
     
     var body: some View {
@@ -80,7 +80,7 @@ struct PencarianView: View {
                         Color.white.frame(height: 15)
                         HStack {
                             Spacer().frame(width: UIScreen.main.bounds.width * 0.288)
-                            Circle().foregroundColor(.blue).frame(width: 5,height: 5)
+                            Circle().foregroundColor(Color("MRTBlue")).frame(width: 5,height: 5)
                             Spacer()
                         }
                     }
@@ -94,8 +94,15 @@ struct PencarianView: View {
                     updateTracks()
                 }
                 }
+        
                 .onChange(of: readvm.status4Bool) { newStatus4Bool in
                     updateTracks()
+                }
+                .onChange(of: readvm.status3Bool) { newStatus3Bool in
+                    updateTracks()
+                }
+                .onChange(of: readvm.jenisBarang) { newJenisBarang in
+                    jenisBarang = newJenisBarang ?? ""
                 }
                 .onChange(of: readvm.status3Tanggal) { newStatus3Tanggal in
                     if let newStatus3Tanggal = newStatus3Tanggal, let newStatus3Waktu = readvm.status3Waktu, tracks.isEmpty {
@@ -151,6 +158,11 @@ struct PencarianView: View {
                                 trackingStatus: false
                             ),
                         ]
+                        statusLaporan = "Pencarian tahap dua di stasiun-stasiun MRT Jakarta." // Change the statusLaporan value here
+                        
+                        jenisBarang = readvm.jenisBarang ?? ""
+
+                        
                     } else if status3Bool {
                         // Show only the "Laporan Dibuat" track when status3Bool is true and status4Bool is false
                         tracks = [
@@ -182,6 +194,11 @@ struct PencarianView: View {
                                 trackingStatus: false
                             ),
                         ]
+                        
+                        statusLaporan = "Pencarian tahap satu di stasiun-stasiun MRT Jakarta." // Change the statusLaporan value here
+                        
+                        jenisBarang = readvm.jenisBarang ?? ""
+                        
                     } else {
                         // Show no tracks when both status3Bool and status4Bool are false
                         tracks = []
