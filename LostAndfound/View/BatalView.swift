@@ -24,7 +24,7 @@ struct BatalView: View {
     @State var detailLokasi: String = ""
     @State var detailWaktu: String = ""
     @State var lampiranFoto: String = ""
-    @State var statusLaporan: String = "Mohon maaf  barang tidak  ditemukan di seluruh area Stasiun MRT Jakarta."
+    @State var statusLaporan: String = "Laporan dibatalkan"
     @State var colorStatus: String = "red"
     
     var body: some View {
@@ -82,7 +82,7 @@ struct BatalView: View {
                     Color.white.frame(height: 15)
                     HStack {
                         Spacer().frame(width: UIScreen.main.bounds.width * 0.892)
-                        Circle().foregroundColor(.blue).frame(width: 5, height: 5)
+                        Circle().foregroundColor(Color("MRTBlue")).frame(width: 5, height: 5)
                         Spacer()
                     }
                 }
@@ -93,11 +93,11 @@ struct BatalView: View {
                     updateTracks()
                 }
         }
-        .onChange(of: readvm.status6Bool) { newStatus7Bool in
+        .onChange(of: readvm.laporanBatal) { newLaporanBatal in
             updateTracks()
         }
-        .onChange(of: readvm.status7Bool) { newStatus7Bool in
-            updateTracks()
+        .onChange(of: readvm.jenisBarang) { newJenisBarang in
+            jenisBarang = newJenisBarang ?? ""
         }
         .onChange(of: readvm.status3Tanggal) { newStatus3Tanggal in
             if let newStatus3Tanggal = newStatus3Tanggal, let newStatus3Waktu = readvm.status3Waktu, tracks.isEmpty {
@@ -162,6 +162,9 @@ struct BatalView: View {
                         trackingStatus: false
                     ),
                 ]
+                
+                jenisBarang = readvm.jenisBarang ?? ""
+                
             } else if !status7Bool && status6Bool {
                 // Show tracks when status6Bool is true and status7Bool is false
                 tracks = [
@@ -220,6 +223,10 @@ struct BatalView: View {
                         trackingStatus: false
                     ),
                 ]
+                
+                jenisBarang = readvm.jenisBarang ?? ""
+                colorStatus = "red"
+                statusLaporan = "Laporan dibatalkan"
             } else {
                 // Show no tracks when both status6Bool and status7Bool are false or both are true
                 tracks = []
