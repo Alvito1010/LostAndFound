@@ -92,6 +92,52 @@ struct LaporanView: View {
             }
         }
         
+        .onChange(of: readvm.status2Bool) { newStatus2Bool in
+            if let status1Bool = readvm.status1Bool {
+                if status1Bool && (newStatus2Bool ?? false) {
+                    // Show both tracks when status1Bool is true and status2Bool is true
+                    tracks = [
+                        ComponentTrack(
+                            dateMonth: readvm.status2Tanggal ?? "",
+                            time: readvm.status2Waktu ?? "",
+                            trackingColor: "green",
+                            trackingTitle: "Laporan Diterima",
+                            trackingDescription: "Laporan telah diterima oleh petugas MRT Jakarta.",
+                            trackingIcon: "",
+                            trackingStatus: false
+                        ),
+                        ComponentTrack(
+                            dateMonth: readvm.status1Tanggal ?? "",
+                            time: readvm.status1Waktu ?? "",
+                            trackingColor: "",
+                            trackingTitle: "Laporan Dibuat",
+                            trackingDescription: "Laporan telah Dibuat oleh \(readvm.nama ?? "").",
+                            trackingIcon: "",
+                            trackingStatus: false
+                        ),
+                    ]
+                } else if status1Bool {
+                    // Show only the "Laporan Dibuat" track when status1Bool is true and status2Bool is false
+                    tracks = [
+                        ComponentTrack(
+                            dateMonth: readvm.status1Tanggal ?? "",
+                            time: readvm.status1Waktu ?? "",
+                            trackingColor: "green",
+                            trackingTitle: "Laporan Dibuat",
+                            trackingDescription: "Laporan telah dibuat oleh \(readvm.nama ?? "").",
+                            trackingIcon: "checkmark.circle.fill",
+                            trackingStatus: false
+                        )
+                    ]
+                } else {
+                    // Show no tracks when both status1Bool and status2Bool are false
+                    tracks = []
+                }
+            }
+        }
+
+
+
         .onChange(of: readvm.status1Tanggal) { newStatus1Tanggal in
             // Check if status1Tanggal and status1Waktu are not nil and tracks is empty
             if let newStatus1Tanggal = newStatus1Tanggal,
@@ -118,22 +164,7 @@ struct LaporanView: View {
             }
 
         }
-        .onChange(of: readvm.status2Bool) { newStatus2Bool in
-            if newStatus2Bool ?? false {
-                        // Add a new ComponentTrack when status2Bool becomes true
-                        tracks.append(
-                            ComponentTrack(
-                                dateMonth: "", // Provide the date/month value for the new track
-                                time: "",      // Provide the time value for the new track
-                                trackingColor: "green", // Customize the color for the new track
-                                trackingTitle: "Laporan Diterima", // Customize the title for the new track
-                                trackingDescription: "Laporan telah diterima oleh petugas MRT Jakarta", // Customize the description for the new track
-                                trackingIcon: "checkmark.circle.fill", // Customize the icon for the new track
-                                trackingStatus: false // Set the status for the new track (true if completed, false if not)
-                            )
-                        )
-                    }
-                }
+
 
 
 
