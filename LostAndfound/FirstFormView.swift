@@ -27,7 +27,7 @@ struct FirstFormView: View {
                     Text("Tenang saja kami akan bantu kamu menemukannya. ")
                         .foregroundColor(Color("MRTBlue"))
                         .fontWeight(.bold) +
-                    Text("Silahkan isi laporan kehilagan berikut!")
+                    Text("Silahkan isi laporan kehilangan berikut!")
                 }
                 .descriptionStyle()
                 .padding(.horizontal, 30)
