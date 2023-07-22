@@ -139,7 +139,7 @@ struct LaporanView: View {
                         trackingColor: "green",
                         trackingTitle: "Laporan Diterima",
                         trackingDescription: "Laporan telah diterima oleh petugas MRT Jakarta.",
-                        trackingIcon: "",
+                        trackingIcon: "checkmark.circle.fill",
                         trackingStatus: false
                     ),
                     ComponentTrack(

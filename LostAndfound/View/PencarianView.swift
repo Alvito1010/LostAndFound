@@ -115,14 +115,32 @@ struct PencarianView: View {
                                 dateMonth: readvm.status4Tanggal ?? "",
                                 time: readvm.status4Waktu ?? "",
                                 trackingColor: "green",
+                                trackingTitle: "Pencarian Tahap Dua",
+                                trackingDescription: "Memasuki proses pencarian di seluruh area stasiun MRT Jakarta.",
+                                trackingIcon: "checkmark.circle.fill",
+                                trackingStatus: false
+                            ),
+                            ComponentTrack(
+                                dateMonth: readvm.status3Tanggal ?? "",
+                                time: readvm.status3Waktu ?? "",
+                                trackingColor: "",
+                                trackingTitle: "Proses Pencarian",
+                                trackingDescription: "Memasuki proses pencarian di lokasi sesuai pelaporan.",
+                                trackingIcon: "",
+                                trackingStatus: false
+                            ),
+                            ComponentTrack(
+                                dateMonth: readvm.status2Tanggal ?? "",
+                                time: readvm.status2Waktu ?? "",
+                                trackingColor: "",
                                 trackingTitle: "Laporan Diterima",
                                 trackingDescription: "Laporan telah diterima oleh petugas MRT Jakarta.",
                                 trackingIcon: "",
                                 trackingStatus: false
                             ),
                             ComponentTrack(
-                                dateMonth: readvm.status3Tanggal ?? "",
-                                time: readvm.status3Waktu ?? "",
+                                dateMonth: readvm.status1Tanggal ?? "",
+                                time: readvm.status1Waktu ?? "",
                                 trackingColor: "",
                                 trackingTitle: "Laporan Dibuat",
                                 trackingDescription: "Laporan telah Dibuat oleh \(readvm.nama ?? "").",
@@ -137,11 +155,29 @@ struct PencarianView: View {
                                 dateMonth: readvm.status3Tanggal ?? "",
                                 time: readvm.status3Waktu ?? "",
                                 trackingColor: "green",
-                                trackingTitle: "Laporan Dibuat",
-                                trackingDescription: "Laporan telah dibuat oleh \(readvm.nama ?? "").",
+                                trackingTitle: "Proses Pencarian",
+                                trackingDescription: "Memasuki proses pencarian di lokasi sesuai pelaporan.",
                                 trackingIcon: "checkmark.circle.fill",
                                 trackingStatus: false
-                            )
+                            ),
+                            ComponentTrack(
+                                dateMonth: readvm.status2Tanggal ?? "",
+                                time: readvm.status2Waktu ?? "",
+                                trackingColor: "",
+                                trackingTitle: "Laporan Diterima",
+                                trackingDescription: "Laporan telah diterima oleh petugas MRT Jakarta.",
+                                trackingIcon: "",
+                                trackingStatus: false
+                            ),
+                            ComponentTrack(
+                                dateMonth: readvm.status1Tanggal ?? "",
+                                time: readvm.status1Waktu ?? "",
+                                trackingColor: "",
+                                trackingTitle: "Laporan Dibuat",
+                                trackingDescription: "Laporan telah Dibuat oleh \(readvm.nama ?? "").",
+                                trackingIcon: "",
+                                trackingStatus: false
+                            ),
                         ]
                     } else {
                         // Show no tracks when both status3Bool and status4Bool are false
