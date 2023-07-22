@@ -295,7 +295,6 @@
 				11A47A162A6A2AF10083DD07 /* LaporanView.swift in Sources */,
 				2AEDE4552A6AA97300EA4F52 /* SecondFormView.swift in Sources */,
 				11D8A89F2A60FCB000C71BAC /* LostAndfoundApp.swift in Sources */,
-				DBF417742A68213A00E70C2F /* ReadViewModel.swift in Sources */,
 				2AB2C20A2A6BA184008ECE9B /* ThirdFormView.swift in Sources */,
 				2A98B5AE2A6B99870074A32C /* ConfrimationView.swift in Sources */,
 				11A47A1C2A6A32480083DD07 /* BatalView.swift in Sources */,
@@ -449,7 +448,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = deka.LostAndfound2;
+				PRODUCT_BUNDLE_IDENTIFIER = bayualif.LostAndfound;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -479,7 +478,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = deka.LostAndfound2;
+				PRODUCT_BUNDLE_IDENTIFIER = bayualif.LostAndfound;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
