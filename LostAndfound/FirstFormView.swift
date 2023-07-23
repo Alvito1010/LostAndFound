@@ -102,6 +102,8 @@ struct FirstFormView: View {
                 .disabled(disableForm)
             }//: - BUTTON SELANJUTNYA (VSTACK)
         }
+        
+        
         .padding(23)
         //: - MAIN WRAPPER FOR ICON, TEXT, TEXTFIELD & BUTTON (VSTACK)
     }//: - BODY

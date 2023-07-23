@@ -34,14 +34,10 @@ struct LandingPageView: View {
                             }
                         }
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            Button(action: {
-                                // Your button action here
-                                print(readvm.status1Tanggal)
-                                print(readvm.status1Waktu)
-                            }) {
+                            NavigationLink(destination: FirstFormView(), label: {
                                 Image(systemName: "plus.circle.fill")
                                     .font(.system(size: 20))
-                            }
+                            })
                             .padding(.trailing, 16)
                         }
                     }
@@ -63,13 +59,10 @@ struct LandingPageView: View {
                         }
                         
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            Button(action: {
-                                // Your button action here
-                                print("hhhhh")
-                            }) {
+                            NavigationLink(destination: FirstFormView(), label: {
                                 Image(systemName: "plus.circle.fill")
                                     .font(.system(size: 20))
-                            }
+                            })
                             .padding(.trailing, 16)
                         }
                     }
@@ -91,13 +84,10 @@ struct LandingPageView: View {
                         }
                         
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            Button(action: {
-                                // Your button action here
-                                print("hhhhh")
-                            }) {
+                            NavigationLink(destination: FirstFormView(), label: {
                                 Image(systemName: "plus.circle.fill")
                                     .font(.system(size: 20))
-                            }
+                            })
                             .padding(.trailing, 16)
                         }
                     }
@@ -119,13 +109,10 @@ struct LandingPageView: View {
                         }
                         
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            Button(action: {
-                                // Your button action here
-                                print("hhhhh")
-                            }) {
+                            NavigationLink(destination: FirstFormView(), label: {
                                 Image(systemName: "plus.circle.fill")
                                     .font(.system(size: 20))
-                            }
+                            })
                             .padding(.trailing, 16)
                         }
                     }
@@ -147,14 +134,10 @@ struct LandingPageView: View {
                         }
                         
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            Button(action: {
-                                // Your button action here
-                                print("hhhhh")
-                            }) {
+                            NavigationLink(destination: FirstFormView(), label: {
                                 Image(systemName: "plus.circle.fill")
-                                    .foregroundColor(Color("MRTBlue"))
                                     .font(.system(size: 20))
-                            }
+                            })
                             .padding(.trailing, 16)
                         }
                     }

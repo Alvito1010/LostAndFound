@@ -24,6 +24,9 @@ struct ThirdFormView: View {
     
     @State var wordCount = 0
     
+    @State var isPickerShowing = false
+    @State var selectedImage: UIImage?
+    
     //MARK: - BODY
     var body: some View {
         VStack(alignment: .center) {
@@ -79,10 +82,21 @@ struct ThirdFormView: View {
                         .headerStyle()
                 }) {
                     HStack {
-                        TextField("Lampiran Foto", text: $namaLengkap)
-                            .textFieldStyle(.roundedBorder)
+                        Button{
+                                                   isPickerShowing = true
+                                               } label: {
+                                                   Image(systemName: "plus.circle.fill").foregroundColor(Color("MRTBlue"))
+                                               }
+                        Text("tambahkan foto referensi barangmu").foregroundColor(Color("TextGray")).font(.system(size: 14))
                     }//: - TEXTFIELD (HSTACK)
                 }//: - FORM LAMPIRAN FOTO
+                
+//                Button {
+//                    writevm.uploadImageAndSaveData(nama: "Trial", hp: "Trial", jenis: "Trial", rutePerjalanan: "Trial", deskripsi: "Trial", detailLokasi: "Trial", waktu: "Trial", selectedImage: selectedImage)
+//                } label: {
+//                    Text("Trial")
+//                }
+
             }//:- FORMS LOKASI, WAKTU DAN FOTO (VSTACK)
             .onChange(of: detailLokasi) { newValue in
                 wordCount = min(newValue.count, 100)
@@ -92,7 +106,7 @@ struct ThirdFormView: View {
             
             //MARK: - BUTTON SELANJUTNYA (VSTACK)
             VStack(alignment: .center) {
-                NavigationLink(destination: ConfrimationView(namaLengkap: namaLengkap, noHP: noHP, itemCategory: itemCategory, deskripsi: deskripsi, routeCategory: routeCategory, date: date, detailLokasi: detailLokasi, time: time), label: {
+                NavigationLink(destination: ConfrimationView(namaLengkap: namaLengkap, noHP: noHP, itemCategory: itemCategory, deskripsi: deskripsi, routeCategory: routeCategory, date: date, detailLokasi: detailLokasi, time: time, selectedImage: selectedImage), label: {
                     Text("Selanjutnya")
                         .font(.headline)
                         .fontWeight(.semibold)
@@ -105,6 +119,12 @@ struct ThirdFormView: View {
                 })
             }//: - BUTTON SELANJUTNYA (VSTACK)
         }//: - MAIN WRAPPER (VSTACK)
+        .sheet(isPresented: $isPickerShowing){
+                            //image Picker
+                            ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
+                            
+                        }
+        
         .padding(23)
     }//: - BODY
 }
