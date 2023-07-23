@@ -1,13 +1,13 @@
 //
-//  SwiftUIView.swift
+//  TimePicker.swift
 //  LostAndfound
 //
-//  Created by Deka Primatio on 21/07/23.
+//  Created by Deka Primatio on 23/07/23.
 //
 
 import SwiftUI
 
-struct SwiftUIView: View {
+struct TimePicker: View {
     //MARK: - PROPERTIES
     @State private var isMenuVisible = false
     @State private var selectedCategory: String = "Pilih Waktu Kehilangan"
@@ -51,11 +51,15 @@ struct SwiftUIView: View {
                 // Done Button
                 HStack {
                     Spacer()
-                    Button("Selesai") {
+                    Button("Pilih Waktu") {
                         updateSelectedCategory()
                         isMenuVisible = false
                     }
-                    .foregroundColor(.blue)
+                    .frame(width: 150, height: 30, alignment: .center)
+                    .background(Color("MRTBlue"))
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
+                    .cornerRadius(12)
                     .padding(.trailing)
                 }
             }//: - LOGIC PEMILIHAN TANGGAL (IF STATEMENT)
@@ -71,10 +75,9 @@ struct SwiftUIView: View {
     }
 }
 
-//MARK: - PREVIEW
-struct SwiftUIView_Previews: PreviewProvider {
+struct TimePicker_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView()
+        TimePicker()
             .padding()
     }
 }

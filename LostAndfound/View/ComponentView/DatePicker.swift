@@ -1,17 +1,17 @@
 //
-//  SwiftUIView.swift
+//  DatePicker.swift
 //  LostAndfound
 //
-//  Created by Deka Primatio on 21/07/23.
+//  Created by Deka Primatio on 23/07/23.
 //
 
 import SwiftUI
 
-struct SwiftUIView: View {
+struct DatePickerComponent: View {
     //MARK: - PROPERTIES
     @State private var isMenuVisible = false
-    @State private var selectedCategory: String = "Pilih Waktu Kehilangan"
-    @State private var selectedTime = Date() // Changed variable name to selectedTime
+    @State private var selectedCategory: String = ""
+    @State private var selectedDate = Date()
     
     //MARK: - BODY
     var body: some View {
@@ -29,7 +29,7 @@ struct SwiftUIView: View {
                         .foregroundColor(Color("FormGray"))
                     
                     HStack {
-                        Text(selectedCategory)
+                        Text(selectedCategory.isEmpty ? formattedDate(selectedDate) : selectedCategory)
                         
                         Spacer()
                         
@@ -43,7 +43,7 @@ struct SwiftUIView: View {
             
             //MARK: - LOGIC PEMILIHAN TANGGAL (IF STATEMENT)
             if isMenuVisible {
-                DatePicker("Select a Time", selection: $selectedTime, displayedComponents: .hourAndMinute)
+                DatePicker("Select a Date", selection: $selectedDate, displayedComponents: .date)
                     .datePickerStyle(WheelDatePickerStyle())
                     .labelsHidden()
                     .padding(.horizontal)
@@ -51,30 +51,32 @@ struct SwiftUIView: View {
                 // Done Button
                 HStack {
                     Spacer()
-                    Button("Selesai") {
-                        updateSelectedCategory()
+                    Button("Pilih Tanggal") {
                         isMenuVisible = false
                     }
-                    .foregroundColor(.blue)
+                    .frame(width: 150, height: 30, alignment: .center)
+                    .background(Color("MRTBlue"))
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
+                    .cornerRadius(12)
                     .padding(.trailing)
                 }
             }//: - LOGIC PEMILIHAN TANGGAL (IF STATEMENT)
         }//: - MAIN WRAPPER (VSTACK)
     }//: - BODY
     
-    //MARK: - FUNCTIONS
-    func updateSelectedCategory() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm" // Set the desired time format
-        
-        selectedCategory = dateFormatter.string(from: selectedTime)
-    }
+    //MARK: - DATE FORMATTER
+    private func formattedDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d MMMM yyyy"
+        return formatter.string(from: date)
+    }//: - DATE FORMATTER
 }
 
 //MARK: - PREVIEW
-struct SwiftUIView_Previews: PreviewProvider {
+struct DatePickerComponent_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView()
+        DatePickerComponent()
             .padding()
     }
 }

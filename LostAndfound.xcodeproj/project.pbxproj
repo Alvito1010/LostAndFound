@@ -26,8 +26,12 @@
 		2A184B302A6A6F30004CBE9D /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A184B2F2A6A6F30004CBE9D /* HomePageView.swift */; };
 		2A446D7B2A6A633D0072E794 /* FirstFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A446D7A2A6A633D0072E794 /* FirstFormView.swift */; };
 		2A446D7F2A6A64DC0072E794 /* ExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A446D7E2A6A64DC0072E794 /* ExampleView.swift */; };
+		2A49AB032A6D12EC0050C0EF /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49AB022A6D12EC0050C0EF /* DatePicker.swift */; };
+		2A49AB052A6D1A8C0050C0EF /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49AB042A6D1A8C0050C0EF /* TimePicker.swift */; };
 		2A98B5AC2A6B954D0074A32C /* ReportCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A98B5AB2A6B954D0074A32C /* ReportCompletionView.swift */; };
 		2A98B5AE2A6B99870074A32C /* ConfrimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A98B5AD2A6B99870074A32C /* ConfrimationView.swift */; };
+		2AAA3E5D2A6D0F2000CFDFA9 /* ItemCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAA3E5C2A6D0F2000CFDFA9 /* ItemCategory.swift */; };
+		2AAA3E5F2A6D0F3B00CFDFA9 /* RouteCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAA3E5E2A6D0F3B00CFDFA9 /* RouteCategory.swift */; };
 		2AB2C20A2A6BA184008ECE9B /* ThirdFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB2C2092A6BA184008ECE9B /* ThirdFormView.swift */; };
 		2AEDE4552A6AA97300EA4F52 /* SecondFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDE4542A6AA97300EA4F52 /* SecondFormView.swift */; };
 		DBF4175D2A6819DB00E70C2F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DBF4175C2A6819DB00E70C2F /* FirebaseAnalytics */; };
@@ -65,8 +69,12 @@
 		2A184B2F2A6A6F30004CBE9D /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		2A446D7A2A6A633D0072E794 /* FirstFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFormView.swift; sourceTree = "<group>"; };
 		2A446D7E2A6A64DC0072E794 /* ExampleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleView.swift; sourceTree = "<group>"; };
+		2A49AB022A6D12EC0050C0EF /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		2A49AB042A6D1A8C0050C0EF /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
 		2A98B5AB2A6B954D0074A32C /* ReportCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCompletionView.swift; sourceTree = "<group>"; };
 		2A98B5AD2A6B99870074A32C /* ConfrimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfrimationView.swift; sourceTree = "<group>"; };
+		2AAA3E5C2A6D0F2000CFDFA9 /* ItemCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCategory.swift; sourceTree = "<group>"; };
+		2AAA3E5E2A6D0F3B00CFDFA9 /* RouteCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCategory.swift; sourceTree = "<group>"; };
 		2AB2C2092A6BA184008ECE9B /* ThirdFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdFormView.swift; sourceTree = "<group>"; };
 		2AEDE4542A6AA97300EA4F52 /* SecondFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondFormView.swift; sourceTree = "<group>"; };
 		DBF4176C2A681ADE00E70C2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -131,6 +139,10 @@
 			children = (
 				116000A32A68F40900C6CA44 /* ComponentTrack.swift */,
 				11A47A122A6A26340083DD07 /* CardLaporan.swift */,
+				2AAA3E5C2A6D0F2000CFDFA9 /* ItemCategory.swift */,
+				2AAA3E5E2A6D0F3B00CFDFA9 /* RouteCategory.swift */,
+				2A49AB022A6D12EC0050C0EF /* DatePicker.swift */,
+				2A49AB042A6D1A8C0050C0EF /* TimePicker.swift */,
 			);
 			path = ComponentView;
 			sourceTree = "<group>";
@@ -288,11 +300,15 @@
 			files = (
 				11A47A1E2A6A326C0083DD07 /* HasilView.swift in Sources */,
 				116000A42A68F40900C6CA44 /* ComponentTrack.swift in Sources */,
+				2AAA3E5D2A6D0F2000CFDFA9 /* ItemCategory.swift in Sources */,
 				1160009E2A68F35300C6CA44 /* SubCardView.swift in Sources */,
 				2A0AFAB52A69FE2E00F08BC9 /* FontStyle.swift in Sources */,
 				DBF4177A2A6ACA5F00E70C2F /* LandingPageView.swift in Sources */,
+				2A49AB052A6D1A8C0050C0EF /* TimePicker.swift in Sources */,
 				2A0AFAB12A69FE1F00F08BC9 /* EffectStyle.swift in Sources */,
+				2A49AB032A6D12EC0050C0EF /* DatePicker.swift in Sources */,
 				2A446D7F2A6A64DC0072E794 /* ExampleView.swift in Sources */,
+				2AAA3E5F2A6D0F3B00CFDFA9 /* RouteCategory.swift in Sources */,
 				DBF417782A6ACA3200E70C2F /* WriteViewModel.swift in Sources */,
 				11D8A8A12A60FCB000C71BAC /* ContentView.swift in Sources */,
 				11A47A162A6A2AF10083DD07 /* LaporanView.swift in Sources */,
