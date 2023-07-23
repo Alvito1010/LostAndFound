@@ -15,14 +15,14 @@ struct SelesaiView: View {
     
     //DATA CARD LAPORAN
     @State var noLaporan: String = "LB140720230408"
-    @State var nama: String = "Joe taslim"
+    @State var nama: String = "Deka"
     @State var noHp: String = "0897986435"
     @State var jenisBarang: String = "elektronik"
-    @State var rutePerjalanan: String = ""
+    @State var rutePerjalanan: String = "Lebak Bulus - Duku Atas"
     @State var tanggalKehilangan: Date = Date()
-    @State var deskripsiBarang: String = ""
-    @State var detailLokasi: String = ""
-    @State var detailWaktu: String = ""
+    @State var deskripsiBarang: String = "Earphone hitam merk samsung dengan case"
+    @State var detailLokasi: String = "Di peron atau di food court"
+    @State var detailWaktu: String = "hari senin pagi jam 10"
     @State var lampiranFoto: String = ""
     @State var statusLaporan: String = "Barang telah diambil oleh Jane Doe di Stasiun Dukuh Atas."
     @State var colorStatus: String = "green"
