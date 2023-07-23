@@ -8,6 +8,8 @@
 import Foundation
 import FirebaseDatabase
 import FirebaseDatabaseSwift
+import FirebaseStorage
+import UIKit
 
 class WriteViewModel: ObservableObject{
     
@@ -17,22 +19,22 @@ class WriteViewModel: ObservableObject{
         ref.child("\(username)").setValue(steps)
     }
     
-    func createPath(nama: String, hp: String, jenis: String, rutePerjalanan: String, deskripsi: String, detailLokasi: String, waktu: String) {
+    func createPath(nama: String, hp: String, jenis: String, rutePerjalanan: String, deskripsi: String, detailLokasi: String, waktu: String, imageURL: String) {
         var i = 0
         
         //time function
         
         func getCurrentTime() -> String {
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "HH:mm"
-                return dateFormatter.string(from: Date())
-            }
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm"
+            return dateFormatter.string(from: Date())
+        }
         
         func getCurrentDate() -> String {
-                let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "MMMM d"
-                    return dateFormatter.string(from: Date())
-            }
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMMM d"
+            return dateFormatter.string(from: Date())
+        }
         
         // Define a function to recursively check for the next available node
         func checkNextNode() {
@@ -52,6 +54,7 @@ class WriteViewModel: ObservableObject{
                     newNodeRef.child("detailLokasi").setValue(detailLokasi)
                     newNodeRef.child("waktu").setValue(waktu)
                     newNodeRef.child("laporanBatal").setValue(false)
+                    newNodeRef.child("imageURL").setValue(imageURL)
                     
                     let status1NodeRef = self.ref.child("\(i)/laporanDibuat")
                     status1NodeRef.child("waktu").setValue("\(getCurrentTime())")
@@ -95,8 +98,43 @@ class WriteViewModel: ObservableObject{
         // Start checking for the first available node
         checkNextNode()
     }
-
-
     
-    
+    func uploadImageAndSaveData(nama: String, hp: String, jenis: String, rutePerjalanan: String, deskripsi: String, detailLokasi: String, waktu: String, selectedImage: UIImage?) {
+        guard let image = selectedImage else {
+            // If no image is selected, skip the image upload and proceed to save other data
+            createPath(nama: nama, hp: hp, jenis: jenis, rutePerjalanan: rutePerjalanan, deskripsi: deskripsi, detailLokasi: detailLokasi, waktu: waktu, imageURL: "")
+            return
+        }
+        
+        print("button works")
+        
+        let storageRef = Storage.storage().reference()
+        let imageRef = storageRef.child("images/\(UUID().uuidString).jpg")
+
+        if let imageData = image.jpegData(compressionQuality: 0.8) {
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
+
+            let uploadTask = imageRef.putData(imageData, metadata: metadata) { (metadata, error) in
+                if let error = error {
+                    // Handle any errors that occurred during image upload
+                    print("Error uploading image: \(error)")
+                    return
+                }
+
+                // Image upload was successful, get the image URL
+                imageRef.downloadURL { (url, error) in
+                    if let error = error {
+                        print("Error getting image URL: \(error)")
+                        return
+                    }
+
+                    if let imageURL = url?.absoluteString {
+                        // Save the imageURL along with other data to the Realtime Database
+                        self.createPath(nama: nama, hp: hp, jenis: jenis, rutePerjalanan: rutePerjalanan, deskripsi: deskripsi, detailLokasi: detailLokasi, waktu: waktu, imageURL: imageURL)
+                    }
+                }
+            }
+        }
+    }
 }

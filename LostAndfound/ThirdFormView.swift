@@ -12,6 +12,8 @@ struct ThirdFormView: View {
     @State private var namaLengkap = ""
     @State private var detailLokasi = ""
     @State private var wordCount = 0
+    @State var isPickerShowing = false
+    @State var selectedImage: UIImage?
     
     //MARK: - BODY
     var body: some View {
@@ -68,8 +70,11 @@ struct ThirdFormView: View {
                         .headerStyle()
                 }) {
                     HStack {
-                        TextField("Lampiran Foto", text: $namaLengkap)
-                            .textFieldStyle(.roundedBorder)
+                        Button{
+                                                   isPickerShowing = true
+                                               } label: {
+                                                   Image(systemName: "plus.circle.fill").foregroundColor(Color("MRTBlue"))
+                                               }
                     }//: - TEXTFIELD (HSTACK)
                 }//: - FORM LAMPIRAN FOTO
             }//:- FORMS LOKASI, WAKTU DAN FOTO (VSTACK)
@@ -94,6 +99,11 @@ struct ThirdFormView: View {
                 })
             }//: - BUTTON SELANJUTNYA (VSTACK)
         }//: - MAIN WRAPPER (VSTACK)
+        .sheet(isPresented: $isPickerShowing){
+                            //image Picker
+                            ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
+                            
+                        }
         .padding(23)
     }//: - BODY
 }
