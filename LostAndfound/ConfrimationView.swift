@@ -9,10 +9,20 @@ import SwiftUI
 
 struct ConfrimationView: View {
     //MARK: - PROPERTIES
-    @State private var namaLengkap = ""
-    @State private var noHP = ""
-    @State private var deskripsi = ""
-    @State private var detailLokasi = ""
+    
+    //DARI FORM PERTAMA
+    @State var namaLengkap: String
+    @State var noHP: String
+    
+    //DARI FORM KEDUA
+    @State var itemCategory: String
+    @State var deskripsi: String
+    @State var routeCategory: String
+    @State var date: Date
+    
+    //DARI FORM KETIGA
+    @State var detailLokasi: String
+    @State var time: Date
     
     @State private var wordCount = 0
     
@@ -32,6 +42,7 @@ struct ConfrimationView: View {
                         HStack {
                             TextField("Nama sesuai KTP", text: $namaLengkap)
                                 .textFieldStyle(.roundedBorder)
+                                .disabled(true)
                                 .overlay(
                                     Image(systemName: "xmark.circle.fill")
                                         .padding()
@@ -55,6 +66,7 @@ struct ConfrimationView: View {
                             TextField("Contoh: 081234567891", text: $noHP)
                                 .textFieldStyle(.roundedBorder)
                                 .keyboardType(.decimalPad)
+                                .disabled(true)
                                 .overlay(
                                     Image(systemName: "xmark.circle.fill")
                                         .padding()
@@ -75,9 +87,10 @@ struct ConfrimationView: View {
                             .headerStyle()
                     }) {
                         HStack {
-                            TextField("Jenis Barang", text: $noHP)
+                            TextField("Jenis Barang", text: $itemCategory)
                                 .textFieldStyle(.roundedBorder)
                                 .keyboardType(.decimalPad)
+                                .disabled(true)
                         }//: - TEXTFIELD (HSTACK)
                     }//: - FORM JENIS BARANG
                     
@@ -87,9 +100,10 @@ struct ConfrimationView: View {
                             .headerStyle()
                     }) {
                         HStack {
-                            TextField("Rute Perjalanan", text: $noHP)
+                            TextField("Rute Perjalanan", text: $routeCategory)
                                 .textFieldStyle(.roundedBorder)
                                 .keyboardType(.decimalPad)
+                                .disabled(true)
                         }//: - TEXTFIELD (HSTACK)
                     }//: - FORM RUTE PERJALANAN
                     
@@ -99,10 +113,15 @@ struct ConfrimationView: View {
                             .headerStyle()
                     }) {
                         HStack {
-                            TextField("Tanggal Kehilangan", text: $noHP)
-                                .textFieldStyle(.roundedBorder)
-                                .keyboardType(.decimalPad)
-                        }//: - TEXTFIELD (HSTACK)
+                            Text(formattedDate(date))
+                            
+                            Spacer()
+                            
+                            Image("chevron.down")
+                        }
+                        .foregroundColor(Color.black)
+                        .padding(.horizontal)
+                        //: - TEXTFIELD (HSTACK)
                     }//: - FORM TANGGAL KEHILANGAN
                     
                     //FORM DESKRIPSI BARANG
@@ -153,10 +172,14 @@ struct ConfrimationView: View {
                             .headerStyle()
                     }) {
                         HStack {
-                            TextField("Detail Waktu", text: $noHP)
-                                .textFieldStyle(.roundedBorder)
-                                .keyboardType(.decimalPad)
-                        }//: - TEXTFIELD (HSTACK)
+                            Text(formattedDate(time))
+                            
+                            Spacer()
+                            
+                            Image("chevron.down")
+                        }
+                        .foregroundColor(Color.black)
+                        .padding(.horizontal)//: - TEXTFIELD (HSTACK)
                     }//: - FORM DETAIL WAKTU
                     
                     //FORM LAMPIRAN FOTO
@@ -185,11 +208,18 @@ struct ConfrimationView: View {
             }//: - MAIN WRAPPER (VSTACK)
         }//SCROLLVIEW CONTENT
     }//: - BODY
+    
+    
+    private func formattedDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d MMMM yyyy"
+        return formatter.string(from: date)
+    }//: - DATE FORMATTER
 }
 
 //MARK: - PREVIEW
 struct ConfrimationView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfrimationView()
+        ConfrimationView(namaLengkap: "", noHP: "", itemCategory: "", deskripsi: "", routeCategory: "", date: Date(), detailLokasi: "", time: Date())
     }
 }

@@ -12,6 +12,8 @@ struct ItemCategory: View {
     @State private var isMenuVisible = false
     @State private var selectedCategory: String = "Pilih Kategori Barang"
     
+    @Binding var category: String
+    
     var body: some View {
         //MARK: - MAIN WRAPPER DROPDOWN KATEGORI BARANG (VSTACK)
         VStack(alignment: .leading) {
@@ -49,7 +51,9 @@ struct ItemCategory: View {
                     VStack(alignment: .leading) {
                         Button(action: {
                             selectedCategory = "Botol Minum"
+                            category = selectedCategory
                             isMenuVisible.toggle() // Hide the menu after selection
+                            
                         }) {
                             Text("Botol Minum")
                         }
@@ -58,6 +62,7 @@ struct ItemCategory: View {
                         
                         Button(action: {
                             selectedCategory = "Dompet"
+                            category = selectedCategory
                             isMenuVisible.toggle() // Hide the menu after selection
                         }) {
                             Text("Dompet")
@@ -67,6 +72,7 @@ struct ItemCategory: View {
                         
                         Button(action: {
                             selectedCategory = "Elektronik"
+                            category = selectedCategory
                             isMenuVisible.toggle() // Hide the menu after selection
                         }) {
                             Text("Elektronik")
@@ -76,6 +82,7 @@ struct ItemCategory: View {
                         
                         Button(action: {
                             selectedCategory = "ID Card"
+                            category = selectedCategory
                             isMenuVisible.toggle() // Hide the menu after selection
                         }) {
                             Text("ID Card")
@@ -85,6 +92,7 @@ struct ItemCategory: View {
                         
                         Button(action: {
                             selectedCategory = "Tas"
+                            category = selectedCategory
                             isMenuVisible.toggle() // Hide the menu after selection
                         }) {
                             Text("Tas")
@@ -100,7 +108,7 @@ struct ItemCategory: View {
 
 struct ItemCategory_Previews: PreviewProvider {
     static var previews: some View {
-        ItemCategory()
+        ItemCategory(category: .constant(""))
             .padding()
     }
 }

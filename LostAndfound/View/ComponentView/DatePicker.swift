@@ -13,6 +13,8 @@ struct DatePickerComponent: View {
     @State private var selectedCategory: String = ""
     @State private var selectedDate = Date()
     
+    @Binding var date: Date
+    
     //MARK: - BODY
     var body: some View {
         
@@ -52,6 +54,7 @@ struct DatePickerComponent: View {
                 HStack {
                     Spacer()
                     Button("Pilih Tanggal") {
+                        date = selectedDate
                         isMenuVisible = false
                     }
                     .frame(width: 150, height: 30, alignment: .center)
@@ -76,7 +79,7 @@ struct DatePickerComponent: View {
 //MARK: - PREVIEW
 struct DatePickerComponent_Previews: PreviewProvider {
     static var previews: some View {
-        DatePickerComponent()
+        DatePickerComponent(date: .constant(Date()))
             .padding()
     }
 }
