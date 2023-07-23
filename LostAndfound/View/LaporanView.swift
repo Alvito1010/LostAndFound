@@ -93,6 +93,14 @@ struct LaporanView: View {
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                nama = readvm.nama ?? ""
+                noHp = readvm.noHp ?? ""
+                jenisBarang = readvm.jenisBarang ?? ""
+                rutePerjalanan = readvm.rutePerjalanan ?? ""
+                detailLokasi = readvm.detailLokasi ?? ""
+                detailWaktu = readvm.waktu ?? ""
+                deskripsiBarang = readvm.deskripsiBarang ?? ""
+//                tanggalKehilangan = readvm.
                     updateTracks()
                 }
         }

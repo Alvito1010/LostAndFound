@@ -103,18 +103,18 @@ struct SubDetailLaporan: View {
                     
                 }
             }
+            .padding(.top, 16)
         }
         .padding(.horizontal)
-        .padding(.vertical)
         .background(.gray.opacity(0.2))
         .alert(isPresented: $isShowingAlertBatal) {
-                    Alert(
-                        title: Text("Batalkan Laporan"),
-                        message: Text("Apakah Anda yakin ingin membatalkan Laporan dengan No.Laporan  \(noLaporan) ?"),
-                        primaryButton: .default(Text("Ya")),
-                        secondaryButton: .cancel(Text("Tidak"))
-                    )
-                }
+            Alert(
+                title: Text("Batalkan Laporan"),
+                message: Text("Apakah Anda yakin ingin membatalkan Laporan dengan No.Laporan  \(noLaporan) ?"),
+                primaryButton: .default(Text("Ya")),
+                secondaryButton: .cancel(Text("Tidak"))
+            )
+        }
     }
 }
 
