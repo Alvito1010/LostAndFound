@@ -35,7 +35,7 @@ struct ThirdFormView: View {
             }//: - MESSAGES AND DIVIDER
             
             //MARK: - FORMS LOKASI, WAKTU DAN FOTO (VSTACK)
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 16) {
                 //FORM DETAIL LOKASI
                 Section(header: HStack {
                     Text("Detail Lokasi")
@@ -59,10 +59,7 @@ struct ThirdFormView: View {
                     Text("Detail Waktu")
                         .headerStyle()
                 }) {
-                    HStack {
-                        TextField("Detail Waktu", text: $namaLengkap)
-                            .textFieldStyle(.roundedBorder)
-                    }//: - TEXTFIELD (HSTACK)
+                    TimePicker()
                 }//: - FORM DETAIL WAKTU
                 
                 //FORM LAMPIRAN FOTO
@@ -84,16 +81,17 @@ struct ThirdFormView: View {
             
             //MARK: - BUTTON SELANJUTNYA (VSTACK)
             VStack(alignment: .center) {
-                Button {
-                    
-                } label: {
+                NavigationLink(destination: ConfrimationView(), label: {
                     Text("Selanjutnya")
-                        .frame(width: 200, height: 50, alignment: .center)
-                        .background(Color.blue)
+                        .font(.headline)
+                        .fontWeight(.semibold)
                         .foregroundColor(Color.white)
-                        .fontWeight(.bold)
-                        .cornerRadius(8)
-                }//: - BUTTON SELANJUTNYA (LABEL)
+                        .frame(width: 186, height: 44)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12, style: .circular)
+                                .fill(Color("MRTBlue"))
+                        )
+                })
             }//: - BUTTON SELANJUTNYA (VSTACK)
         }//: - MAIN WRAPPER (VSTACK)
         .padding(23)
