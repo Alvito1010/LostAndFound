@@ -40,9 +40,6 @@ struct SubCardView: View {
             Spacer()
         }.padding(.horizontal)
             .background(.gray.opacity(0.2))
-            
-        
-
     }
 }
 

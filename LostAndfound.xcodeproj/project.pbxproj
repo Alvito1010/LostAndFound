@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		115D2DA02A6CFD7F00708B4F /* SubDetailLaporan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115D2D9F2A6CFD7F00708B4F /* SubDetailLaporan.swift */; };
 		1160009E2A68F35300C6CA44 /* SubCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160009D2A68F35300C6CA44 /* SubCardView.swift */; };
 		116000A42A68F40900C6CA44 /* ComponentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116000A32A68F40900C6CA44 /* ComponentTrack.swift */; };
 		11A47A132A6A26340083DD07 /* CardLaporan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A47A122A6A26340083DD07 /* CardLaporan.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		115D2D9F2A6CFD7F00708B4F /* SubDetailLaporan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubDetailLaporan.swift; sourceTree = "<group>"; };
 		1160009D2A68F35300C6CA44 /* SubCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCardView.swift; sourceTree = "<group>"; };
 		116000A32A68F40900C6CA44 /* ComponentTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTrack.swift; sourceTree = "<group>"; };
 		11A47A122A6A26340083DD07 /* CardLaporan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLaporan.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				1160009D2A68F35300C6CA44 /* SubCardView.swift */,
+				115D2D9F2A6CFD7F00708B4F /* SubDetailLaporan.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				11D8A8A12A60FCB000C71BAC /* ContentView.swift in Sources */,
 				11A47A162A6A2AF10083DD07 /* LaporanView.swift in Sources */,
 				2AEDE4552A6AA97300EA4F52 /* SecondFormView.swift in Sources */,
+				115D2DA02A6CFD7F00708B4F /* SubDetailLaporan.swift in Sources */,
 				11D8A89F2A60FCB000C71BAC /* LostAndfoundApp.swift in Sources */,
 				2AB2C20A2A6BA184008ECE9B /* ThirdFormView.swift in Sources */,
 				2A98B5AE2A6B99870074A32C /* ConfrimationView.swift in Sources */,

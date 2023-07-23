@@ -42,16 +42,17 @@ struct CardLaporan: View {
                     HStack{
                         Text("\(jenisBarang)")
                             .font(.system(size: 13))
-                        Text("Lihat Selengkapnya")
-                            .font(.system(size: 13))
-                            .foregroundColor(.gray)
+                        NavigationLink(destination:SubDetailLaporan(noLaporan: noLaporan, nama: nama, noHp: noHp, jenisBarang: jenisBarang, rutePerjalanan: rutePerjalanan, tanggalKehilangan: tanggalKehilangan, deskripsiBarang: deskripsiBarang, detailLokasi: detailLokasi, detailWaktu: detailWaktu, lampiranForo: lampiranForo)){
+                            Text("Lihat Selengkapnya")
+                                .font(.system(size: 13))
+                                .foregroundColor(.gray)
+                        }
+                        
                         
                         Spacer()
                     }
                 }
-                Rectangle()
-                    .frame(width: .infinity, height: 2)
-                    .foregroundColor(.gray.opacity(0.2))
+                Divider()
                 NavigationLink(destination: SubCardView(arrayTrack: arrayTrack)) {
                     HStack{
                         Text("Status :")
