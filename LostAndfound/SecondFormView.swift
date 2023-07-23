@@ -9,52 +9,37 @@ import SwiftUI
 
 struct SecondFormView: View {
     //MARK: - PROPERTIES
+    @Environment(\.presentationMode) var presentationMode
     @State private var deskripsi = ""
     @State private var wordCount = 0
-    @State private var placeholderJenisBarang = "Pilih Kategori Barang"
     @State private var selectedDate = Date()
-    
-    let jenisBarang = ["Botol Minum", "Dompet", "Elektronik", "ID Card", "Tas", "Lainnya"]
-    let rutePerjalanan = ["Lebak Bulus - Bundaran HI", "Bundaran HI - Lebak Bulus"]
     
     //MARK: - BODY
     var body: some View {
         //MAIN WRAPPER (VSTACK)
         VStack(alignment: .center) {
             
-            VStack(alignment: .leading) {
+            //MARK: - FORMS (VSTACK)
+            VStack(alignment: .leading, spacing: 16) {
                 Section(header: HStack {
                     Text("Jenis Barang")
                         .headerStyle()
                 }) {
-                    Picker("Pilih Kategori Barang", selection: $placeholderJenisBarang) {
-                        ForEach(jenisBarang, id: \.self) { option in
-                            Text(option)
-                        }
-                    }
-                    .pickerStyle(MenuPickerStyle())
+                    ItemCategory()
                 }
                 
                 Section(header: HStack {
                     Text("Rute Perjalanan")
                         .headerStyle()
                 }) {
-                    Picker("Pilih Kategori Barang", selection: $placeholderJenisBarang) {
-                        ForEach(rutePerjalanan, id: \.self) { option in
-                            Text(option)
-                        }
-                    }
-                    .pickerStyle(MenuPickerStyle())
+                    RouteCategory()
                 }
                 
                 Section(header: HStack {
                     Text("Tanggal Kehilangan")
                         .headerStyle()
                 }) {
-                    DatePicker("Select a Date", selection: $selectedDate, displayedComponents: .date)
-                        .datePickerStyle(WheelDatePickerStyle())
-                        .labelsHidden()
-                        .padding(.horizontal)
+                    DatePickerComponent()
                 }
                 
                 Section(header: HStack {
@@ -73,30 +58,36 @@ struct SecondFormView: View {
                         )
                         .disabled(wordCount >= 100)
                 }
-            }
+            }//: - FORMS (VSTACK)
             
             Spacer()
             
-            //MARK: - BUTTON SELANJUTNYA
+            //MARK: - BUTTON SELANJUTNYA (VSTACK)
             VStack(alignment: .center) {
-                Button {
-                    
-                } label: {
+                NavigationLink(destination: ThirdFormView(), label: {
                     Text("Selanjutnya")
-                        .frame(width: 200, height: 50, alignment: .center)
-                        .background(Color.blue)
-                        .foregroundColor(Color.white)
-                        .fontWeight(.bold)
-                        .cornerRadius(8)
-                }
-            }//: - BUTTON SELANJUTNYA
-            
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .foregroundColor(disableForm ? Color("TextGray") : Color.white)
+                        .frame(width: 186, height: 44)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12, style: .circular)
+                                .fill(disableForm ? Color("ButtonGray") : Color("MRTBlue"))
+                        )
+                })
+                .disabled(disableForm)
+            }//: - BUTTON SELANJUTNYA (VSTACK)
         }//: - MAIN WRAPPER (VSTACK)
         .padding(23)
         .onChange(of: deskripsi) { newValue in
             wordCount = min(newValue.count, 100)
         }
     }//: - BODY
+    
+    //MARK: - PRIVATE LOGIC FOR BUTTON TOGGLE (DISABLE FORM)
+    var disableForm: Bool {
+        deskripsi.isEmpty || deskripsi.count < 10
+    }
     
     //MARK: - DATE FORMATTER
     private func formattedDate(_ date: Date) -> String {

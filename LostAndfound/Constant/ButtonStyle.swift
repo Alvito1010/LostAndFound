@@ -16,7 +16,7 @@ struct ActiveButtonModifier: ViewModifier {
             .foregroundColor(.white)
             .frame(width: 186, height: 44)
             .background(
-                RoundedRectangle(cornerRadius: 16, style: .circular)
+                RoundedRectangle(cornerRadius: 12, style: .circular)
                     .fill(Color("MRTBlue"))
             )
     }
@@ -37,10 +37,10 @@ struct DisableButtonModifier: ViewModifier {
             .foregroundColor(Color("TextGray"))
             .frame(width: 186, height: 44)
             .background(
-                RoundedRectangle(cornerRadius: 16, style: .circular)
+                RoundedRectangle(cornerRadius: 12, style: .circular)
                     .fill(Color("ButtonGray"))
                     .overlay(
-                        RoundedRectangle(cornerRadius: 16, style: .circular)
+                        RoundedRectangle(cornerRadius: 12, style: .circular)
                             .stroke(Color("TextGray").opacity(0.3), lineWidth: 1)
                     )
             )

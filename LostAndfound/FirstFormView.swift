@@ -9,15 +9,14 @@ import SwiftUI
 
 struct FirstFormView: View {
     //MARK: - PROPERTIES
-    @Environment(\.presentationMode) var presentationMode
-    
     @State private var namaLengkap = ""
     @State private var noHP = ""
+    @State private var isSecondFormViewActive = false
     
     //MARK: - BODY
     var body: some View {
         //MARK: - MAIN WRAPPER FOR ICON, TEXT, TEXTFIELD & BUTTON (VSTACK)
-        VStack(alignment: .center) {            
+        VStack(alignment: .center) {
             //MRT ICON
             VStack(alignment: .center, spacing: 50) {
                 Image("MRTIcon")
@@ -37,7 +36,7 @@ struct FirstFormView: View {
             Spacer()
             
             //MARK: - HEADER & TEXTFIELD FORM (VSTACK)
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 16) {
                 //FORM NAMA LENGKAP
                 Section(header: HStack {
                     Text("Nama Lengkap")
@@ -89,40 +88,23 @@ struct FirstFormView: View {
             
             //MARK: - BUTTON SELANJUTNYA (VSTACK)
             VStack(alignment: .center) {
-                //BUTTON SELANJUTNYA
-                Button {
-                    
-                } label: {
+                NavigationLink(destination: SecondFormView(), label: {
                     Text("Selanjutnya")
                         .font(.headline)
                         .fontWeight(.semibold)
                         .foregroundColor(disableForm ? Color("TextGray") : Color.white)
                         .frame(width: 186, height: 44)
                         .background(
-                            RoundedRectangle(cornerRadius: 16, style: .circular)
+                            RoundedRectangle(cornerRadius: 12, style: .circular)
                                 .fill(disableForm ? Color("ButtonGray") : Color("MRTBlue"))
                         )
-                }
+                })
                 .disabled(disableForm)
             }//: - BUTTON SELANJUTNYA (VSTACK)
         }
         .padding(23)
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: backButton)
         //: - MAIN WRAPPER FOR ICON, TEXT, TEXTFIELD & BUTTON (VSTACK)
     }//: - BODY
-    
-    private var backButton: some View {
-        Button(action: {
-            presentationMode.wrappedValue.dismiss()
-        }) {
-            HStack {
-                Image(systemName: "chevron.left")
-                Text("Lost & Found")
-            }
-            .foregroundColor(.blue)
-        }
-    }
     
     //MARK: - PRIVATE LOGIC FOR BUTTON TOGGLE (DISABLE FORM)
     var disableForm: Bool {
