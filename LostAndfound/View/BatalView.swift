@@ -30,6 +30,15 @@ struct BatalView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
+                HStack {
+                    Text("Batal")
+                        .font(.largeTitle).fontWeight(.bold).padding()
+                    Spacer()
+                    NavigationLink(destination: FirstFormView(), label: {
+                        Image(systemName: "plus.circle.fill")
+                            .font(.system(size: 20))
+                    }).padding(.horizontal)
+                }
                 ZStack(alignment: .top) {
                     Color.gray.opacity(0.2)
                     if !(readvm.laporanBatal ?? false) {

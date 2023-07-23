@@ -30,6 +30,15 @@ struct PencarianView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack (spacing: 0){
+                HStack {
+                    Text("Pencarian")
+                        .font(.largeTitle).fontWeight(.bold).padding()
+                    Spacer()
+                    NavigationLink(destination: FirstFormView(), label: {
+                        Image(systemName: "plus.circle.fill")
+                            .font(.system(size: 20))
+                    }).padding(.horizontal)
+                }
                 ZStack(alignment: .top) {
                     Color.gray.opacity(0.2)
                     if !(readvm.status3Bool ?? true) || (readvm.status5Bool ?? false) || (readvm.status6Bool ?? false) || (readvm.status7Bool ?? false) ||

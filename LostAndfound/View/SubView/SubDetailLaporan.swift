@@ -20,6 +20,8 @@ struct SubDetailLaporan: View {
     @State var detailWaktu: String
     @State var lampiranForo: String
     
+    @EnvironmentObject var writevm: WriteViewModel
+    
     var body: some View {
         ScrollView{
             LazyVStack{
@@ -111,8 +113,11 @@ struct SubDetailLaporan: View {
             Alert(
                 title: Text("Batalkan Laporan"),
                 message: Text("Apakah Anda yakin ingin membatalkan Laporan dengan No.Laporan  \(noLaporan) ?"),
-                primaryButton: .default(Text("Ya")),
-                secondaryButton: .cancel(Text("Tidak"))
+                primaryButton: .default(Text("Tidak")),
+                secondaryButton: .cancel(Text("Ya"),
+                                        action: {
+                                            writevm.batalkanLaporan(i: 0)
+                                        })
             )
         }
     }
