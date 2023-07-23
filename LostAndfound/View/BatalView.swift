@@ -48,13 +48,9 @@ struct BatalView: View {
                             .multilineTextAlignment(.center)
                             
                             Spacer().frame(height: UIScreen.main.bounds.height * 0.08)
-                            Button {
-                                // Add the action when the button is tapped
-                                // Example: print("tapped")
-                            } label: {
-                                Text("Buat Laporan")
-                                    .activeButtonStyle()
-                            }
+                            NavigationLink(destination: FirstFormView(), label: {
+                                Text("Buat laporan").activeButtonStyle()
+                            })
                             Spacer()
                         }
                     } else {

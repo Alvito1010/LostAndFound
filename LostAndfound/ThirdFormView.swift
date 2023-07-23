@@ -24,6 +24,9 @@ struct ThirdFormView: View {
     
     @State var wordCount = 0
     
+    @State var isPickerShowing = false
+    @State var selectedImage: UIImage?
+    
     //MARK: - BODY
     var body: some View {
         VStack(alignment: .center) {
@@ -103,7 +106,7 @@ struct ThirdFormView: View {
             
             //MARK: - BUTTON SELANJUTNYA (VSTACK)
             VStack(alignment: .center) {
-                NavigationLink(destination: ConfrimationView(namaLengkap: namaLengkap, noHP: noHP, itemCategory: itemCategory, deskripsi: deskripsi, routeCategory: routeCategory, date: date, detailLokasi: detailLokasi, time: time), label: {
+                NavigationLink(destination: ConfrimationView(namaLengkap: namaLengkap, noHP: noHP, itemCategory: itemCategory, deskripsi: deskripsi, routeCategory: routeCategory, date: date, detailLokasi: detailLokasi, time: time, selectedImage: selectedImage), label: {
                     Text("Selanjutnya")
                         .font(.headline)
                         .fontWeight(.semibold)
@@ -121,6 +124,7 @@ struct ThirdFormView: View {
                             ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
                             
                         }
+        
         .padding(23)
     }//: - BODY
 }

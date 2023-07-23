@@ -9,6 +9,11 @@ import SwiftUI
 
 struct HomePageView: View {
     
+    @AppStorage ("isOnboardingViewed") var isOnboardingViewed: Bool = false
+    
+    @EnvironmentObject var writevm: WriteViewModel
+    @EnvironmentObject var readvm: ReadViewModel
+    
     //MARK: - BODY
     var body: some View {
         NavigationView {
@@ -22,17 +27,32 @@ struct HomePageView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 200)
-                    NavigationLink(destination: FirstFormView()) {
-                        VStack {
-                            Image("LostAndFoundIcon")
-                                .padding(.top, 12)
-                                .padding(.bottom, 5)
+                    
+                    if isOnboardingViewed {
+                        NavigationLink(destination: LandingPageView()) {
+                            VStack {
+                                Image("LostAndFoundIcon")
+                                    .padding(.top, 12)
+                                    .padding(.bottom, 5)
 
-                            Text("Lost & Found")
-                                .font(.system(size: 11))
+                                Text("Lost & Found")
+                                    .font(.system(size: 11))
+                            }
                         }
+                        .foregroundColor(Color.black)
+                    } else {
+                        NavigationLink(destination: FirstFormView()) {
+                            VStack {
+                                Image("LostAndFoundIcon")
+                                    .padding(.top, 12)
+                                    .padding(.bottom, 5)
+
+                                Text("Lost & Found")
+                                    .font(.system(size: 11))
+                            }
+                        }
+                        .foregroundColor(Color.black)
                     }
-                    .foregroundColor(Color.black)
                     
                     Image("MenuKanan")
                         .resizable()
