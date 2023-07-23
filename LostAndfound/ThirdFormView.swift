@@ -9,9 +9,20 @@ import SwiftUI
 
 struct ThirdFormView: View {
     //MARK: - PROPERTIES
-    @State private var namaLengkap = ""
-    @State private var detailLokasi = ""
-    @State private var wordCount = 0
+    //DARI FORM PERTAMA
+    @State var namaLengkap: String
+    @State var noHP: String
+    
+    //DARI FORM KEDUA
+    @State var itemCategory: String
+    @State var deskripsi: String
+    @State var routeCategory: String
+    @State var date: Date
+    
+    @State var detailLokasi = ""
+    @State var time = Date()
+    
+    @State var wordCount = 0
     
     //MARK: - BODY
     var body: some View {
@@ -59,7 +70,7 @@ struct ThirdFormView: View {
                     Text("Detail Waktu")
                         .headerStyle()
                 }) {
-                    TimePicker()
+                    TimePicker(time: $time)
                 }//: - FORM DETAIL WAKTU
                 
                 //FORM LAMPIRAN FOTO
@@ -81,7 +92,7 @@ struct ThirdFormView: View {
             
             //MARK: - BUTTON SELANJUTNYA (VSTACK)
             VStack(alignment: .center) {
-                NavigationLink(destination: ConfrimationView(), label: {
+                NavigationLink(destination: ConfrimationView(namaLengkap: namaLengkap, noHP: noHP, itemCategory: itemCategory, deskripsi: deskripsi, routeCategory: routeCategory, date: date, detailLokasi: detailLokasi, time: time), label: {
                     Text("Selanjutnya")
                         .font(.headline)
                         .fontWeight(.semibold)
@@ -101,6 +112,6 @@ struct ThirdFormView: View {
 //MARK: - PREVIEW
 struct ThirdFormView_Previews: PreviewProvider {
     static var previews: some View {
-        ThirdFormView()
+        ThirdFormView(namaLengkap: "", noHP: "", itemCategory: "", deskripsi: "", routeCategory: "", date: Date())
     }
 }

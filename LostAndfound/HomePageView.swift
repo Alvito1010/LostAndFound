@@ -22,7 +22,6 @@ struct HomePageView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 200)
-                    
                     NavigationLink(destination: FirstFormView()) {
                         VStack {
                             Image("LostAndFoundIcon")

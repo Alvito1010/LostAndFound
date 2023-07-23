@@ -13,6 +13,7 @@ struct TimePicker: View {
     @State private var selectedCategory: String = "Pilih Waktu Kehilangan"
     @State private var selectedTime = Date() // Changed variable name to selectedTime
     
+    @Binding var time: Date
     //MARK: - BODY
     var body: some View {
         
@@ -53,6 +54,7 @@ struct TimePicker: View {
                     Spacer()
                     Button("Pilih Waktu") {
                         updateSelectedCategory()
+                        time = selectedTime
                         isMenuVisible = false
                     }
                     .frame(width: 150, height: 30, alignment: .center)
@@ -77,7 +79,7 @@ struct TimePicker: View {
 
 struct TimePicker_Previews: PreviewProvider {
     static var previews: some View {
-        TimePicker()
+        TimePicker(time: .constant(Date()))
             .padding()
     }
 }
