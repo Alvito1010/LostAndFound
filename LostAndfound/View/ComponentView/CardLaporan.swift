@@ -16,7 +16,7 @@ struct CardLaporan: View {
     var tanggalKehilangan: Date
     var deskripsiBarang: String
     var detailLokasi: String
-    var detailWaktu: Date
+    var detailWaktu: String
     var lampiranForo: String
     var statusLaporan: String
     var colorStatus: String

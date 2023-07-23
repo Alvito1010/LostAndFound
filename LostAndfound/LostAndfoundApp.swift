@@ -9,20 +9,26 @@ import SwiftUI
 import FirebaseCore
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    FirebaseApp.configure()
+    
+            func application(_ application: UIApplication,
+                           didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+            FirebaseApp.configure()
 
-    return true
-  }
-}
+            return true
+          }
+    
+    
+    }
+    
+    
+
 
 @main
 struct LostAndfoundApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            LandingPageView().environmentObject(WriteViewModel())
+            LandingPageView().environmentObject(WriteViewModel()).environmentObject(ReadViewModel())
         }
     }
 }

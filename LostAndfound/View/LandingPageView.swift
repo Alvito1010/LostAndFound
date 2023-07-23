@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LandingPageView: View {
     @EnvironmentObject var writevm: WriteViewModel
+    @EnvironmentObject var readvm: ReadViewModel
     @State var text1 = "ggggggg"
     @State private var selectedTab = 0
     init() {
@@ -23,7 +24,7 @@ struct LandingPageView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             NavigationView {
-                LaporanView()
+                LaporanView().environmentObject(readvm).environmentObject(writevm)
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
                             HStack {
@@ -35,7 +36,8 @@ struct LandingPageView: View {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button(action: {
                                 // Your button action here
-                                print("hhhhh")
+                                print(readvm.status1Tanggal)
+                                print(readvm.status1Waktu)
                             }) {
                                 Image(systemName: "plus.circle.fill")
                                     .font(.system(size: 20))
@@ -150,6 +152,7 @@ struct LandingPageView: View {
                                 print("hhhhh")
                             }) {
                                 Image(systemName: "plus.circle.fill")
+                                    .foregroundColor(Color("MRTBlue"))
                                     .font(.system(size: 20))
                             }
                             .padding(.trailing, 16)
@@ -161,6 +164,8 @@ struct LandingPageView: View {
             }
             .tag(4)
             
+        }.tint(Color("MRTBlue")).onAppear(){
+            readvm.observeStatus(laporanId: 0)
         }
         
     }
@@ -169,16 +174,18 @@ struct LandingPageView: View {
         VStack {
             ZStack {
                 Image(systemName: imageName)
-                if selectedTab == index { // Show the dot only for the active tab
-                    Circle()
-                        .foregroundColor(Color.blue) // Customize the dot color as needed
-                        .frame(width: 8, height: 8)
-                        .offset(y: -10)
-                }
+                    .foregroundColor(Color("MRTBlue")) // Change icon color based on selection
+//                if selectedTab == index { // Show the dot only for the active tab
+//                    Circle()
+//                        .foregroundColor(Color("MRTBlue")) // Customize the dot color as needed
+//                        .frame(width: 8, height: 8)
+//                        .offset(y: -10)
+//                }
             }
             Text(title)
         }
     }
+
 
     private var tabNavigationTitle: String {
         switch selectedTab {
@@ -197,9 +204,3 @@ struct LandingPageView_Previews: PreviewProvider {
         LandingPageView()
     }
 }
-
-
-
-
-
-

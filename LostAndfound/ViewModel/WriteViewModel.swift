@@ -51,6 +51,7 @@ class WriteViewModel: ObservableObject{
                     newNodeRef.child("deskripsi").setValue(deskripsi)
                     newNodeRef.child("detailLokasi").setValue(detailLokasi)
                     newNodeRef.child("waktu").setValue(waktu)
+                    newNodeRef.child("laporanBatal").setValue(false)
                     
                     let status1NodeRef = self.ref.child("\(i)/laporanDibuat")
                     status1NodeRef.child("waktu").setValue("\(getCurrentTime())")
@@ -99,4 +100,3 @@ class WriteViewModel: ObservableObject{
     
     
 }
-
