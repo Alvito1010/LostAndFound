@@ -28,7 +28,7 @@ struct LostAndfoundApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            HomePageView().environmentObject(WriteViewModel()).environmentObject(ReadViewModel())
+            ThirdFormView().environmentObject(WriteViewModel()).environmentObject(ReadViewModel())
             
 //            HomePageView()
         }

@@ -14,6 +14,7 @@ struct ThirdFormView: View {
     @State private var wordCount = 0
     @State var isPickerShowing = false
     @State var selectedImage: UIImage?
+    @EnvironmentObject var writevm: WriteViewModel
     
     //MARK: - BODY
     var body: some View {
@@ -75,8 +76,16 @@ struct ThirdFormView: View {
                                                } label: {
                                                    Image(systemName: "plus.circle.fill").foregroundColor(Color("MRTBlue"))
                                                }
+                        Text("tambahkan foto referensi barangmu").foregroundColor(Color("TextGray")).font(.system(size: 14))
                     }//: - TEXTFIELD (HSTACK)
                 }//: - FORM LAMPIRAN FOTO
+                
+//                Button {
+//                    writevm.uploadImageAndSaveData(nama: "Trial", hp: "Trial", jenis: "Trial", rutePerjalanan: "Trial", deskripsi: "Trial", detailLokasi: "Trial", waktu: "Trial", selectedImage: selectedImage)
+//                } label: {
+//                    Text("Trial")
+//                }
+
             }//:- FORMS LOKASI, WAKTU DAN FOTO (VSTACK)
             .onChange(of: detailLokasi) { newValue in
                 wordCount = min(newValue.count, 100)
