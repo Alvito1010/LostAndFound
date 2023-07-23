@@ -9,9 +9,9 @@ import SwiftUI
 
 struct FirstFormView: View {
     //MARK: - PROPERTIES
-    @State private var namaLengkap = ""
-    @State private var noHP = ""
-    @State private var isSecondFormViewActive = false
+    @State var namaLengkap = ""
+    @State var noHP = ""
+    @State var isSecondFormViewActive = false
     
     //MARK: - BODY
     var body: some View {
@@ -88,7 +88,7 @@ struct FirstFormView: View {
             
             //MARK: - BUTTON SELANJUTNYA (VSTACK)
             VStack(alignment: .center) {
-                NavigationLink(destination: SecondFormView(), label: {
+                NavigationLink(destination: SecondFormView(namaLengkap: namaLengkap, noHP: noHP), label: {
                     Text("Selanjutnya")
                         .font(.headline)
                         .fontWeight(.semibold)

@@ -30,7 +30,7 @@ struct LostAndfoundApp: App {
         WindowGroup {
             ThirdFormView().environmentObject(WriteViewModel()).environmentObject(ReadViewModel())
             
-//            HomePageView()
+            HomePageView()
         }
     }
 }

@@ -12,6 +12,8 @@ struct RouteCategory: View {
     @State private var isMenuVisible = false
     @State private var selectedRoute: String = "Pilih Rute Perjalanan"
     
+    @Binding var routeCategory: String
+    
     //MARK: - BODY
     var body: some View {
         //MARK: - MAIN WRAPPER DROPDOWN RUTE PERJALANAN (VSTACK)
@@ -50,6 +52,7 @@ struct RouteCategory: View {
                     VStack(alignment: .leading) {
                         Button(action: {
                             selectedRoute = "Lebak Bulus - Bundaran HI"
+                            routeCategory = selectedRoute
                             isMenuVisible.toggle() // Hide the menu after selection
                         }) {
                             Text("Lebak Bulus - Bundaran HI")
@@ -59,6 +62,7 @@ struct RouteCategory: View {
                         
                         Button(action: {
                             selectedRoute = "Bundaran HI - Lebak Bulus"
+                            routeCategory = selectedRoute
                             isMenuVisible.toggle() // Hide the menu after selection
                         }) {
                             Text("Bundaran HI - Lebak Bulus")
@@ -75,7 +79,7 @@ struct RouteCategory: View {
 //MARK: - PREVIEW
 struct RouteCategory_Previews: PreviewProvider {
     static var previews: some View {
-        RouteCategory()
+        RouteCategory(routeCategory: .constant(""))
             .padding()
     }
 }

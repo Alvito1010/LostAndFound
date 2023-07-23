@@ -10,9 +10,19 @@ import SwiftUI
 struct SecondFormView: View {
     //MARK: - PROPERTIES
     @Environment(\.presentationMode) var presentationMode
-    @State private var deskripsi = ""
-    @State private var wordCount = 0
-    @State private var selectedDate = Date()
+    //DARI FORM PERTAMA
+    @State var namaLengkap: String
+    @State var noHP: String
+    
+    @State var deskripsi = ""
+    @State var wordCount = 0
+    
+    //KIRIM BINDING
+    @State var itemCategory: String = ""
+    @State var routeCategory: String = ""
+    @State var date: Date = Date()
+    
+    
     
     //MARK: - BODY
     var body: some View {
@@ -25,21 +35,21 @@ struct SecondFormView: View {
                     Text("Jenis Barang")
                         .headerStyle()
                 }) {
-                    ItemCategory()
+                    ItemCategory(category: $itemCategory)
                 }
                 
                 Section(header: HStack {
                     Text("Rute Perjalanan")
                         .headerStyle()
                 }) {
-                    RouteCategory()
+                    RouteCategory(routeCategory: $routeCategory)
                 }
                 
                 Section(header: HStack {
                     Text("Tanggal Kehilangan")
                         .headerStyle()
                 }) {
-                    DatePickerComponent()
+                    DatePickerComponent(date: $date)
                 }
                 
                 Section(header: HStack {
@@ -64,7 +74,7 @@ struct SecondFormView: View {
             
             //MARK: - BUTTON SELANJUTNYA (VSTACK)
             VStack(alignment: .center) {
-                NavigationLink(destination: ThirdFormView(), label: {
+                NavigationLink(destination: ThirdFormView(namaLengkap: namaLengkap, noHP: noHP, itemCategory: itemCategory, deskripsi: deskripsi, routeCategory: routeCategory, date: date), label: {
                     Text("Selanjutnya")
                         .font(.headline)
                         .fontWeight(.semibold)
@@ -100,6 +110,6 @@ struct SecondFormView: View {
 //MARK: - PREVIEW
 struct SecondFormView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondFormView()
+        SecondFormView(namaLengkap: "bayu", noHP: "08997868654")
     }
 }
