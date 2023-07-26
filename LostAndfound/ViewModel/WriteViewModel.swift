@@ -99,6 +99,11 @@ class WriteViewModel: ObservableObject{
         checkNextNode()
     }
     
+    func batalkanLaporan(i: Int){
+        let newNodeRef = self.ref.child("\(i)/laporan")
+        newNodeRef.child("laporanBatal").setValue(true)
+    }
+    
     func uploadImageAndSaveData(nama: String, hp: String, jenis: String, rutePerjalanan: String, deskripsi: String, detailLokasi: String, waktu: String, selectedImage: UIImage?) {
         guard let image = selectedImage else {
             // If no image is selected, skip the image upload and proceed to save other data
